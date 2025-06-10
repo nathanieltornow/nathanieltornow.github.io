@@ -1,5 +1,5 @@
 ---
-import { FileText, Github, Video, Presentation, Mail, Linkedin, GraduationCap } from 'lucide-astro';
+import { FileText, Github, Presentation, Mail, Linkedin, GraduationCap, Paperclip, BookOpen, Briefcase, ScrollText, FileSearch, Mic, User } from 'lucide-astro';
 
 // CV data
 const cvData = {
@@ -11,11 +11,40 @@ const cvData = {
     github: "nathanieltornow",
     scholar: "f5_ulrIAAAAJ"
   },
+  contacts: [
+    {
+      type: "email",
+      url: "mailto:nate.tornow@gmail.com",
+      title: "Email",
+      icon: "Mail"
+    },
+    {
+      type: "linkedin", 
+      url: "https://linkedin.com/in/nathanieltornow",
+      title: "LinkedIn",
+      icon: "Linkedin",
+      external: true
+    },
+    {
+      type: "github",
+      url: "https://github.com/nathanieltornow", 
+      title: "GitHub",
+      icon: "Github",
+      external: true
+    },
+    {
+      type: "scholar",
+      url: "https://scholar.google.com/citations?user=f5_ulrIAAAAJ",
+      title: "Google Scholar", 
+      icon: "GraduationCap",
+      external: true
+    }
+  ],
   education: [
     {
       institution: "Technical University of Munich",
       degree: "MSc Computer Science",
-      period: "2022 - Present",
+      period: "2022 - 2025",
       thesis: "Scalable Hybrid Quantum-Classical Computing with Tensor Networks",
       thesisLink: "https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2024/winter/docs/msc_nathaniel_tornow_scalable_hybrid_quantum_classical_computing_with_tensor_networks.pdf",
       logo: "/tum.png"
@@ -190,8 +219,54 @@ const cvData = {
 	</head>
 	<body class="bg-stone-50 text-stone-800 min-h-screen">
 		
-		<!-- Unified Navigation (Top Right) -->
-		<div class="fixed top-4 left-4 z-50">
+		<!-- Modern Top Navigation Bar -->
+		<nav class="fixed md:top-4 bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+			<div class="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-stone-200/50 px-4 h-12 flex items-center">
+				<div class="flex items-center gap-1">
+					<!-- Contact Button -->
+					<button id="contact-btn" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70 mr-2">
+						<User size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors flex-shrink-0" />
+						<span class="contact-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block whitespace-nowrap">Contact</span>
+					</button>
+					
+					<!-- Divider -->
+					<div class="w-px h-6 bg-stone-300 mr-2 hidden md:block"></div>
+					
+					<!-- Education -->
+					<button data-section="education" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
+						<GraduationCap size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors flex-shrink-0" />
+						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block whitespace-nowrap">Education</span>
+					</button>
+					
+					<!-- Experience -->
+					<button data-section="experience" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
+						<Briefcase size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
+						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Experience</span>
+					</button>
+					
+					<!-- Publications -->
+					<button data-section="publications" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
+						<ScrollText size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
+						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Publications</span>
+					</button>
+					
+					<!-- Talks -->
+					<button data-section="talks" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
+						<Mic size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
+						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Talks</span>
+					</button>
+					
+					<!-- Academic Experience -->
+					<button data-section="academic-experience" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
+						<BookOpen size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
+						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Academic Experience</span>
+					</button>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Old Navigation (Hidden but kept for potential fallback) -->
+		<div class="fixed top-4 left-4 z-50 hidden">
 			<!-- Menu Button -->
 			<button id="menu-btn" class="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-stone-200/50 hover:bg-white transition-all duration-200 hover:shadow-xl">
 				<svg id="menu-icon" class="w-5 h-5 text-stone-600 hover:text-stone-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,24 +282,24 @@ const cvData = {
 				<!-- Navigation Links -->
 				<div class="px-2">
 					<a href="#education" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<div class="w-2 h-2 rounded-full bg-stone-400"></div>
+						<GraduationCap size={16} class="text-stone-500" />
 						Education
 					</a>
 					<a href="#experience" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<div class="w-2 h-2 rounded-full bg-stone-400"></div>
+						<Briefcase size={16} class="text-stone-500" />
 						Experience
 					</a>
 					
 					<a href="#publications" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<div class="w-2 h-2 rounded-full bg-stone-400"></div>
+						<FileSearch size={16} class="text-stone-500" />
 						Publications
 					</a>
 					<a href="#talks" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<div class="w-2 h-2 rounded-full bg-stone-400"></div>
+						<Mic size={16} class="text-stone-500" />
 						Talks
 					</a>
 					<a href="#academic-experience" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<div class="w-2 h-2 rounded-full bg-stone-400"></div>
+						<BookOpen size={16} class="text-stone-500" />
 						Academic Experience
 					</a>
 				</div>
@@ -258,12 +333,10 @@ const cvData = {
 		<div class="max-w-4xl mx-auto px-6 py-16">
 			
 			<!-- Header with Avatar and Contact -->
-			<header id="top" class="flex flex-col md:flex-row gap-8 mb-16 pb-12 border-b border-stone-200 mt-10">
+			<header id="top" class="flex flex-col md:flex-row gap-8 mb-16 pb-12 border-b border-stone-200 mt-10 items-center md:items-start text-center md:text-left">
 				<!-- Avatar -->
 				<div class="flex-shrink-0">
-					<div class="w-32 h-32 bg-gradient-to-br from-stone-200 to-stone-300 rounded-full flex items-center justify-center text-3xl font-bold text-stone-700 shadow-md border border-stone-300/50">
-						NT
-					</div>
+					<img src="/avatar.png" alt="Nathaniel Tornow" class="w-32 h-32 rounded-full object-cover shadow-md border border-stone-300/50" />
 				</div>
 				
 				<!-- Name and Info -->
@@ -278,7 +351,7 @@ const cvData = {
 						</div>
 						</div>
 						<!-- Contact Icons - Minimal style -->
-						<div class="flex gap-6 text-lg">
+						<div class="flex gap-6 text-lg justify-center md:justify-start">
 							<a href={`mailto:${cvData.email}`} 
 							   class="text-stone-600 hover:text-stone-800 transition-colors" 
 							   title="Email">
@@ -312,34 +385,40 @@ const cvData = {
 				<h2 class="text-3xl font-bold mb-8 text-stone-800">Education</h2>
 				{cvData.education.map(edu => (
 					<div class="mb-8 last:mb-0">
-						<div class="flex gap-4 items-start">
-							<!-- Logo -->
-							<div class="flex-shrink-0 mt-1">
+						<!-- Logo and Title Row -->
+						<div class="flex gap-4 items-start mb-2">
+							<div>
 								<img src={edu.logo} alt={`${edu.institution} logo`} class="w-10 h-10 object-contain" />
 							</div>
-							
-							<!-- Content -->
-							<div class="flex-1 flex justify-between items-start">
-								<div>
-									<h3 class="font-semibold text-stone-800 text-lg">{edu.degree}</h3>
-									<p class="text-stone-600 text-base">{edu.institution}</p>
-									{edu.thesis && (
-										<div class="mt-2">
-											{edu.thesisLink && (
-												<a href={edu.thesisLink} 
-												   target="_blank" 
-												   rel="noopener"
-												   class="flex items-center gap-2 text-stone-500 hover:text-stone-700 transition-colors"
-												   title={edu.thesis}>
-													<FileText size={14} />
-													<span class="text-base">Thesis</span>
-												</a>
-											)}
-										</div>
+							<div class="flex-1">
+								<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+									<div class="flex-1">
+										<h3 class="font-semibold text-stone-800 text-lg">{edu.degree}</h3>
+										<p class="text-stone-600 text-base">{edu.institution}</p>
+									</div>
+									<div class="md:text-right">
+										<span class="text-base text-stone-500">{edu.period}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Thesis Link (Mobile: under content, Desktop: under content) -->
+						<div class="ml-14">
+							{edu.thesis && (
+								<div class="mt-2">
+									{edu.thesisLink && (
+										<a href={edu.thesisLink} 
+										   target="_blank" 
+										   rel="noopener"
+										   class="flex items-center gap-2 text-stone-500 hover:text-stone-700 transition-colors"
+										   title={edu.thesis}>
+											<FileText size={14} />
+											<span class="text-base">Thesis</span>
+										</a>
 									)}
 								</div>
-								<span class="text-base text-stone-500 text-right whitespace-nowrap ml-4">{edu.period}</span>
-							</div>
+							)}
 						</div>
 					</div>
 				))}
@@ -351,32 +430,37 @@ const cvData = {
 			<!-- Experience -->
 			<section id="experience" class="mb-16">
 				<h2 class="text-3xl font-bold mb-8 text-stone-800">Experience</h2>
-				{cvData.experience.map(exp => (
-					<div class="mb-10 last:mb-0">
-						<div class="flex gap-4 items-start">
-							<!-- Logo -->
-							<div class="flex-shrink-0 mt-1">
-								<img src={exp.logo} alt={`${exp.company} logo`} class="w-10 h-10 object-contain" />
+				<div class="space-y-8">
+					{cvData.experience.map(exp => (
+						<div class="pb-6 border-b border-stone-200 last:border-b-0 last:pb-0">
+							<!-- Logo and Title Row -->
+							<div class="flex gap-4 items-start mb-2">
+								<div class="flex-shrink-0">
+									<img src={exp.logo} alt={`${exp.company} logo`} class="w-10 h-10 object-contain" />
+								</div>
+								<div class="flex-1">
+									<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+										<div class="flex-1">
+											<h3 class="font-semibold text-stone-800 text-lg">{exp.position}</h3>
+											{exp.department ?
+												<p class="text-stone-600 text-base">{exp.department}, {exp.company}, {exp.location}</p>
+												:
+												<p class="text-stone-600 text-base">{exp.company}, {exp.location}</p>}
+										</div>
+										<div class="md:text-right">
+											<span class="text-base text-stone-500">{exp.period}</span>
+										</div>
+									</div>
+								</div>
 							</div>
 							
-							<!-- Content -->
-							<div class="flex-1">
-								<div class="flex justify-between items-start mb-3">
-									<div>
-										<h3 class="font-semibold text-stone-800 text-lg">{exp.position}</h3>
-										{exp.department ?
-											<p class="text-stone-600 text-base">{exp.department}, {exp.company}, {exp.location}</p>
-											:
-											<p class="text-stone-600 text-base">{exp.company}, {exp.location}</p>}
-
-									</div>
-									<span class="text-base text-stone-500 text-right whitespace-nowrap ml-4">{exp.period}</span>
-								</div>
+							<!-- Details -->
+							<div class="ml-14">
 								{exp.details && (
 									<ul class="text-base text-stone-600 mt-2">
 										{exp.details.map(detail => (
 											<li class="flex items-start">
-												<span class="text-stone-400 mr-3 flex-shrink-0">•</span>
+												<span class="text-stone-400 mr-3 mt-0.5 flex-shrink-0">•</span>
 												<span class="leading-relaxed">{detail}</span>
 											</li>
 										))}
@@ -384,8 +468,8 @@ const cvData = {
 								)}
 							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</section>
 
 			<!-- Divider -->
@@ -399,7 +483,7 @@ const cvData = {
 						<div class="pb-6 border-b border-stone-200 last:border-b-0 last:pb-0">
 							<div class="flex justify-between items-start mb-3">
 								<h3 class="font-semibold text-stone-800 flex-1 pr-4 underline text-lg">
-									<a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener" class="hover:text-stone-600">
+									<a href={pub.links.paper} target="_blank" rel="noopener" class="hover:text-stone-600">
 										{pub.title}
 									</a>
 								</h3>
@@ -424,6 +508,7 @@ const cvData = {
 									<FileText size={16} />
 									<span class="text-sm font-medium">Paper</span>
 								</a>
+								
 								{pub.links.code &&
 								<a href={pub.links.code} target="_blank" rel="noopener" 
 								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
@@ -431,21 +516,21 @@ const cvData = {
 									<span class="text-sm font-medium">Code</span>
 								</a>
 								}
-								{pub.links.talk && 
-								<a href={pub.links.talk} target="_blank" rel="noopener" 
-								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
-									<Video size={16} />
-									<span class="text-sm font-medium">Talk</span>
-								</a>
-								}
 								{pub.links.slides && 
-
 								<a href={pub.links.slides} target="_blank" rel="noopener" 
 								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
 									<Presentation size={16} />
 									<span class="text-sm font-medium">Slides</span>
 								</a>
 								}
+								{pub.doi &&
+								<a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener" 
+								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
+									<Paperclip size={16} />
+									<span class="text-sm font-medium">DOI</span>
+								</a>
+								}
+
 							</div>
 							
 							{pub.description && (
@@ -527,119 +612,149 @@ const cvData = {
 
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-				// Menu elements
-				const menuBtn = document.getElementById('menu-btn');
-				const menuDropdown = document.getElementById('menu-dropdown');
-				const menuIcon = document.getElementById('menu-icon');
-				const closeIcon = document.getElementById('close-icon');
-				
 				// Navigation elements
-				const navLinks = document.querySelectorAll('.nav-link');
+				const navIcons = document.querySelectorAll('.nav-icon');
 				
-				let isMenuOpen = false;
-				
-				// Toggle menu
-				function toggleMenu() {
-					isMenuOpen = !isMenuOpen;
-					
-					if (isMenuOpen) {
-						menuDropdown?.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
-						menuDropdown?.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
-						menuIcon?.classList.add('hidden');
-						closeIcon?.classList.remove('hidden');
-					} else {
-						menuDropdown?.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-						menuDropdown?.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
-						menuIcon?.classList.remove('hidden');
-						closeIcon?.classList.add('hidden');
-					}
+				// Check if device is mobile
+				function isMobile() {
+					return window.innerWidth < 768; // md breakpoint
 				}
 				
-				// Close menu
-				function closeMenu() {
-					if (!isMenuOpen) return;
-					
-					isMenuOpen = false;
-					menuDropdown?.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
-					menuDropdown?.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
-					menuIcon?.classList.remove('hidden');
-					closeIcon?.classList.add('hidden');
-				}
-				
-				// Handle menu button click
-				menuBtn?.addEventListener('click', function(e) {
-					e.stopPropagation();
-					toggleMenu();
-				});
-				
-				// Close menu when clicking outside
-				document.addEventListener('click', function(e) {
-					if (isMenuOpen && menuBtn && !menuBtn.contains(e.target as Node) && menuDropdown && !menuDropdown.contains(e.target as Node)) {
-						closeMenu();
-					}
-				});
-				
-				// Section highlighting
+				// Section highlighting and text reveal
 				function handleScroll() {
-					const sections = ['top', 'education', 'experience', 'academic-experience', 'publications', 'talks'];
-					let currentSection = 'top';
+					const sections = ['education', 'experience', 'publications', 'talks', 'academic-experience'];
+					let currentSection = null;
+					const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 					
-					for (const sectionId of sections) {
-						const element = document.getElementById(sectionId);
-						if (element) {
-							const rect = element.getBoundingClientRect();
-							if (rect.top <= 100) {
-								currentSection = sectionId;
-							}
-						}
-					}
-					
-					// Update active nav link
-					navLinks.forEach(link => {
-						const dot = link.querySelector('.w-2.h-2');
-						link.classList.remove('bg-stone-200', 'text-stone-900');
-						link.classList.add('text-stone-600');
-						dot?.classList.remove('bg-stone-700');
-						dot?.classList.add('bg-stone-400');
-						
-						if (link.getAttribute('href') === `#${currentSection}`) {
-							link.classList.remove('text-stone-600');
-							link.classList.add('bg-stone-200', 'text-stone-900');
-							dot?.classList.remove('bg-stone-400');
-							dot?.classList.add('bg-stone-700');
-						}
-					});
-				}
-				
-				// Smooth scrolling for navigation links
-				navLinks.forEach(link => {
-					link.addEventListener('click', function(e) {
-						e.preventDefault();
-						const href = (e.target as HTMLElement).getAttribute('href') || (e.currentTarget as HTMLElement).getAttribute('href');
-						if (href) {
-							const targetId = href.substring(1);
-							const targetElement = document.getElementById(targetId);
-							
-							if (targetElement) {
-								targetElement.scrollIntoView({
-									behavior: 'smooth',
-									block: 'start'
-								});
-								
-								// Close menu after clicking a navigation link
-								if (isMenuOpen) {
-									closeMenu();
+					// Check if we're at the very top (contact section)
+					if (scrollTop < 100) {
+						currentSection = 'contact';
+					} else {
+						// Find current section based on scroll position
+						for (const sectionId of sections) {
+							const element = document.getElementById(sectionId);
+							if (element) {
+								const rect = element.getBoundingClientRect();
+								if (rect.top <= 150) { // adjust threshold for better UX
+									currentSection = sectionId;
 								}
 							}
 						}
+					}
+					
+					// Update active nav icon and reveal text for section buttons
+					navIcons.forEach(icon => {
+						const iconSvg = icon.querySelector('svg');
+						const textSpan = icon.querySelector('.nav-text, .contact-text');
+						const sectionName = icon.getAttribute('data-section');
+						const isContactBtn = icon.id === 'contact-btn';
+						
+						// Reset all icons
+						icon.classList.remove('bg-stone-200');
+						iconSvg?.classList.remove('text-stone-800');
+						iconSvg?.classList.add('text-stone-500');
+						
+						// Only handle text animations on desktop
+						if (!isMobile()) {
+							textSpan?.classList.add('opacity-0', 'w-0');
+							textSpan?.classList.remove('opacity-100', 'w-auto');
+						}
+						
+						// Activate current section or contact button
+						const shouldActivate = isContactBtn ? 
+							currentSection === 'contact' : 
+							sectionName === currentSection;
+							
+						if (shouldActivate) {
+							icon.classList.add('bg-stone-200');
+							iconSvg?.classList.remove('text-stone-500');
+							iconSvg?.classList.add('text-stone-800');
+							
+							// Only expand text on desktop
+							if (!isMobile()) {
+								textSpan?.classList.remove('opacity-0', 'w-0');
+								textSpan?.classList.add('opacity-100', 'w-auto');
+							}
+						}
+					});
+				}
+				
+				// Smooth scrolling for navigation icons
+				navIcons.forEach(icon => {
+					icon.addEventListener('click', function(e) {
+						e.preventDefault();
+						const sectionName = this.getAttribute('data-section');
+						const targetElement = document.getElementById(sectionName);
+						
+						if (targetElement) {
+							targetElement.scrollIntoView({
+								behavior: 'smooth',
+								block: 'start'
+							});
+						}
 					});
 				});
+				
+				// Contact button functionality
+				const contactBtn = document.getElementById('contact-btn');
+				if (contactBtn) {
+					contactBtn.addEventListener('click', function(e) {
+						e.preventDefault();
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						});
+					});
+					
+					// Hover effects for contact button (desktop only)
+					contactBtn.addEventListener('mouseenter', function() {
+						const textSpan = this.querySelector('.contact-text');
+						if (!isMobile()) {
+							textSpan?.classList.remove('opacity-0', 'w-0');
+							textSpan?.classList.add('opacity-70', 'w-auto');
+						}
+					});
+					
+					contactBtn.addEventListener('mouseleave', function() {
+						const textSpan = this.querySelector('.contact-text');
+						if (!isMobile()) {
+							textSpan?.classList.add('opacity-0', 'w-0');
+							textSpan?.classList.remove('opacity-70', 'w-auto');
+						}
+					});
+				}
 				
 				// Listen for scroll events
 				window.addEventListener('scroll', handleScroll);
 				
 				// Initial call
 				handleScroll();
+				
+				// Add hover effects for better UX (desktop only)
+				navIcons.forEach(icon => {
+					icon.addEventListener('mouseenter', function() {
+						const textSpan = this.querySelector('.nav-text');
+						// Only show hover effects on desktop and if not active
+						if (!isMobile() && !this.classList.contains('bg-stone-200')) {
+							textSpan?.classList.remove('opacity-0', 'w-0');
+							textSpan?.classList.add('opacity-70', 'w-auto');
+						}
+					});
+					
+					icon.addEventListener('mouseleave', function() {
+						const textSpan = this.querySelector('.nav-text');
+						// Only handle hover effects on desktop and if not active
+						if (!isMobile() && !this.classList.contains('bg-stone-200')) {
+							textSpan?.classList.add('opacity-0', 'w-0');
+							textSpan?.classList.remove('opacity-70', 'w-auto');
+						}
+					});
+				});
+				
+				// Handle window resize to update mobile state
+				window.addEventListener('resize', function() {
+					handleScroll(); // Recheck current section and update accordingly
+				});
 			});
 		</script>
 	</body>
