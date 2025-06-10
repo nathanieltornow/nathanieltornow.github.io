@@ -136,7 +136,7 @@ const cvData = {
       title: "QVM: Quantum Gate Virtualization Machine",
       authors: ["Nathaniel Tornow", "Emmanouil Giortamis", "Pramod Bhatotia"],
       venue: "PLDI'25",
-      doi: "10.48550/arXiv.2406.18410",
+      doi: "10.1145/3729290",
       links: {
         paper: "https://dse.in.tum.de/wp-content/uploads/2025/06/QVM_PLDI_2025.pdf",
         code: "https://github.com/TUM-DSE/qvm",
@@ -220,8 +220,8 @@ const cvData = {
 	<body class="bg-stone-50 text-stone-800 min-h-screen">
 		
 		<!-- Modern Top Navigation Bar -->
-		<nav class="fixed md:top-4 bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-			<div class="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-stone-200/50 px-4 h-12 flex items-center">
+		<nav class="fixed md:top-4 bottom-4 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
+			<div class="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-stone-200/50 px-4 h-12 flex items-center pointer-events-auto">
 				<div class="flex items-center gap-1">
 					<!-- Contact Button -->
 					<button id="contact-btn" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70 mr-2">
@@ -309,22 +309,19 @@ const cvData = {
 				
 				<!-- Contact Links -->
 				<div class="px-2">
-					<a href={`mailto:${cvData.email}`} class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<Mail size={16} class="text-stone-500" />
-						Email
-					</a>
-					<a href={`https://linkedin.com/in/${cvData.social.linkedin}`} target="_blank" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<Linkedin size={16}  />
-						LinkedIn
-					</a>
-					<a href={`https://github.com/${cvData.social.github}`} target="_blank" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<Github size={16} class="text-stone-700" />
-						GitHub
-					</a>
-					<a href={`https://scholar.google.com/citations?user=${cvData.social.scholar}`} target="_blank" class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<GraduationCap size={16} />
-						Scholar
-					</a>
+					{cvData.contacts.map(contact => (
+						<a 
+							href={contact.url} 
+							{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+							class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150"
+						>
+							{contact.icon === 'Mail' && <Mail size={16} class="text-stone-500" />}
+							{contact.icon === 'Linkedin' && <Linkedin size={16} />}
+							{contact.icon === 'Github' && <Github size={16} class="text-stone-700" />}
+							{contact.icon === 'GraduationCap' && <GraduationCap size={16} />}
+							{contact.title}
+						</a>
+					))}
 				</div>
 			</div>
 		</div>
@@ -352,30 +349,19 @@ const cvData = {
 						</div>
 						<!-- Contact Icons - Minimal style -->
 						<div class="flex gap-6 text-lg justify-center md:justify-start">
-							<a href={`mailto:${cvData.email}`} 
-							   class="text-stone-600 hover:text-stone-800 transition-colors" 
-							   title="Email">
-								<Mail size={20} />
-							</a>
-							<a href={`https://linkedin.com/in/${cvData.social.linkedin}`} 
-							   target="_blank" 
-							   class="text-stone-600 hover:text-stone-800 transition-colors" 
-							   title="LinkedIn">
-								<Linkedin size={20} />
-							</a>
-							<a href={`https://github.com/${cvData.social.github}`} 
-							   target="_blank" 
-							   class="text-stone-600 hover:text-stone-800 transition-colors" 
-							   title="GitHub">
-								<Github size={20} />
-							</a>
-							<a href={`https://scholar.google.com/citations?user=${cvData.social.scholar}`} 
-							   target="_blank" 
-							   class="text-stone-600 hover:text-stone-800 transition-colors" 
-							   title="Google Scholar">
-								<GraduationCap size={20} />
-							</a>
-						
+							{cvData.contacts.map(contact => (
+								<a 
+									href={contact.url} 
+									{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+									class="text-stone-600 hover:text-stone-800 transition-colors" 
+									title={contact.title}
+								>
+									{contact.icon === 'Mail' && <Mail size={20} />}
+									{contact.icon === 'Linkedin' && <Linkedin size={20} />}
+									{contact.icon === 'Github' && <Github size={20} />}
+									{contact.icon === 'GraduationCap' && <GraduationCap size={20} />}
+								</a>
+							))}
 					</div>
 				</div>
 			</header>
