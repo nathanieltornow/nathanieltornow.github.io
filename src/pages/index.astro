@@ -1,5 +1,5 @@
 ---
-import { FileText, Github, Presentation, Mail, Linkedin, GraduationCap, Paperclip, BookOpen, Briefcase, ScrollText, FileSearch, Mic, User } from 'lucide-astro';
+import { FileText, Github, Presentation, Mail, Linkedin, GraduationCap, Paperclip, BookOpen, Briefcase, ScrollText, FileSearch, Mic, User, Download } from 'lucide-astro';
 
 // CV data
 const cvData = {
@@ -41,8 +41,17 @@ const cvData = {
     }
   ],
   education: [
+	{
+      institution: "Systems Research Group, Technical University of Munich",
+      institutionUrl: "https://dse.in.tum.de/",
+      degree: "PhD Computer Science",
+      period: "2025 - Present",
+      logo: "/tum.png",
+	  description: "Topic: Compilers and Software Systems for Quantum Computing"
+    },
     {
       institution: "Technical University of Munich",
+      institutionUrl: "https://www.tum.de/en/",
       degree: "MSc Computer Science",
       period: "2022 - 2025",
       thesis: "Scalable Hybrid Quantum-Classical Computing with Tensor Networks",
@@ -51,6 +60,7 @@ const cvData = {
     },
     {
       institution: "Technical University of Munich", 
+      institutionUrl: "https://www.tum.de/en/",
       degree: "BSc Computer Science",
       period: "2018 - 2022",
       thesis: "DQS: A Framework for Efficient Distributed Simulation of Large Quantum Circuits",
@@ -61,6 +71,7 @@ const cvData = {
   experience: [
     {
       company: "PlanQC",
+      companyUrl: "https://planqc.eu/",
       position: "Software Engineer Intern",
       location: "Munich",
       period: "Apr 2025 - Present",
@@ -71,6 +82,7 @@ const cvData = {
     },
 	{
       company: "Technical University of Munich",
+      companyUrl: "https://dse.in.tum.de/",
       position: "Student Research Assistant", 
       location: "Munich",
       period: "Jul 2021 - Mar 2025",
@@ -82,6 +94,7 @@ const cvData = {
     },
     {
       company: "Leibniz Supercomputing Centre",
+      companyUrl: "https://www.quantum.lrz.de/",
       position: "Student Research Assistant",
       location: "Munich", 
       period: "Oct 2022 - Mar 2025",
@@ -94,6 +107,7 @@ const cvData = {
 
     {
       company: "Technical University of Munich",
+      companyUrl: "https://www.tum.de/en/",
       position: "Teaching Assistant",
       location: "Munich",
       period: "Oct 2019 - Sep 2023",
@@ -106,6 +120,7 @@ const cvData = {
     },
     {
       company: "Leibniz Supercomputing Centre",
+      companyUrl: "https://www.lrz.de",
       position: "Software Developer Working Student",
       location: "Munich",
       period: "Sep 2020 - Apr 2021",
@@ -136,6 +151,7 @@ const cvData = {
       title: "QVM: Quantum Gate Virtualization Machine",
       authors: ["Nathaniel Tornow", "Emmanouil Giortamis", "Pramod Bhatotia"],
       venue: "PLDI'25",
+      venueUrl: "https://pldi25.sigplan.org/",
       doi: "10.1145/3729290",
       links: {
         paper: "https://dse.in.tum.de/wp-content/uploads/2025/06/QVM_PLDI_2025.pdf",
@@ -145,9 +161,10 @@ const cvData = {
       ]
     },
     {
-      title: "QOS: A Quantum Operating System", 
+      title: "QOS: Quantum Operating System", 
       authors: ["Emmanouil Giortamis", "Francisco Romao", "Nathaniel Tornow", "Pramod Bhatotia"],
       venue: "OSDI'25",
+      venueUrl: "https://www.usenix.org/conference/osdi25",
       doi: "10.48550/arXiv.2406.19120",
       links: {
         paper: "https://dse.in.tum.de/wp-content/uploads/2025/06/QOS-OSDI-2025.pdf",
@@ -183,6 +200,7 @@ const cvData = {
       title: "FlexLog: A Shared Log for Stateful Serverless Computing",
       authors: ["Dimitra Giantsidi", "Emmanouil Giortamis", "Nathaniel Tornow", "Florin Dinu", "Pramod Bhatotia"],
       venue: "HPDC'23",
+      venueUrl: "https://dl.acm.org/doi/proceedings/10.1145/3588195",
       doi: "10.1145/3588195.3592993",
       links: {
         paper: "https://dl.acm.org/doi/10.1145/3588195.3592993",
@@ -341,27 +359,55 @@ const cvData = {
 							<h1 class="text-5xl font-bold text-stone-800 mb-4">
 								{cvData.name}
 							</h1>
-							<p class="text-2xl text-stone-600 mb-3">MSc Computer Science and Software Engineer Intern</p>
+							<p class="text-2xl text-stone-600 mb-3">PhD Student at Systems Research Group</p>
 							<p class="text-xl text-stone-500 mb-6">TU Munich and PlanQC</p>
 						</div>
 						</div>
-						<!-- Contact Icons - Minimal style -->
-						<div class="flex gap-6 text-lg justify-center md:justify-start">
-							{cvData.contacts.map(contact => (
+						<!-- Contact Icons and CV Button -->
+						<div class="flex flex-col items-center md:items-start">
+							<!-- Contact Icons - Minimal style -->
+							<div class="flex gap-6 text-lg justify-center md:justify-start">
+								{cvData.contacts.map(contact => (
+									<a 
+										href={contact.url} 
+										{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+										class="text-stone-600 hover:text-stone-800 transition-colors" 
+										title={contact.title}
+									>
+										{contact.icon === 'Mail' && <Mail size={20} />}
+										{contact.icon === 'Linkedin' && <Linkedin size={20} />}
+										{contact.icon === 'Github' && <Github size={20} />}
+										{contact.icon === 'GraduationCap' && <GraduationCap size={20} />}
+									</a>
+								))}
+								<!-- CV Button on Desktop -->
 								<a 
-									href={contact.url} 
-									{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-									class="text-stone-600 hover:text-stone-800 transition-colors" 
-									title={contact.title}
+									href="/cv.pdf" 
+									target="_blank" 
+									rel="noopener noreferrer"
+									class="hidden md:inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
+									title="Download CV as PDF"
 								>
-									{contact.icon === 'Mail' && <Mail size={20} />}
-									{contact.icon === 'Linkedin' && <Linkedin size={20} />}
-									{contact.icon === 'Github' && <Github size={20} />}
-									{contact.icon === 'GraduationCap' && <GraduationCap size={20} />}
+									<Download size={14} />
+									CV
 								</a>
-							))}
+							</div>
+							
+							<!-- CV Button on Mobile -->
+							<div class="flex justify-center md:hidden mt-3">
+								<a 
+									href="/cv.pdf" 
+									target="_blank" 
+									rel="noopener noreferrer"
+									class="inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
+									title="Download CV as PDF"
+								>
+									<Download size={14} />
+									CV
+								</a>
+							</div>
+						</div>
 					</div>
-				</div>
 			</header>
 
 			<!-- Education -->
@@ -372,13 +418,19 @@ const cvData = {
 						<!-- Logo and Title Row -->
 						<div class="flex gap-4 items-start mb-2">
 							<div>
-								<img src={edu.logo} alt={`${edu.institution} logo`} class="w-10 h-10 object-contain" />
+								<a href={edu.institutionUrl} target="_blank" rel="noopener noreferrer" title={`Visit ${edu.institution}`}>
+									<img src={edu.logo} alt={`${edu.institution} logo`} class="w-10 h-10 object-contain hover:opacity-80 transition-opacity" />
+								</a>
 							</div>
 							<div class="flex-1">
 								<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
 									<div class="flex-1">
 										<h3 class="font-semibold text-stone-800 text-lg">{edu.degree}</h3>
-										<p class="text-stone-600 text-base">{edu.institution}</p>
+										<p class="text-stone-600 text-base">
+											<a href={edu.institutionUrl} target="_blank" rel="noopener noreferrer" class="hover:text-stone-800 transition-colors">
+												{edu.institution}
+											</a>
+										</p>
 									</div>
 									<div class="md:text-right">
 										<span class="text-base text-stone-500">{edu.period}</span>
@@ -403,6 +455,11 @@ const cvData = {
 									)}
 								</div>
 							)}
+							{
+								edu.description && (
+									<p class="text-base text-stone-600 mt-2">{edu.description}</p>
+								)
+							}
 						</div>
 					</div>
 				))}
@@ -420,16 +477,27 @@ const cvData = {
 							<!-- Logo and Title Row -->
 							<div class="flex gap-4 items-start mb-2">
 								<div class="flex-shrink-0">
-									<img src={exp.logo} alt={`${exp.company} logo`} class="w-10 h-10 object-contain" />
+									<a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" title={`Visit ${exp.company}`}>
+										<img src={exp.logo} alt={`${exp.company} logo`} class="w-10 h-10 object-contain hover:opacity-80 transition-opacity" />
+									</a>
 								</div>
 								<div class="flex-1">
 									<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
 										<div class="flex-1">
 											<h3 class="font-semibold text-stone-800 text-lg">{exp.position}</h3>
+													<a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" class="hover:text-stone-800 transition-colors ">
+
 											{exp.department ?
-												<p class="text-stone-600 text-base">{exp.department}, {exp.company}, {exp.location}</p>
+												<p class="text-stone-600 text-base">
+														{exp.department}, {exp.company}, {exp.location}
+												</p>
 												:
-												<p class="text-stone-600 text-base">{exp.company}, {exp.location}</p>}
+												<p class="text-stone-600 text-base">
+														{exp.company}, {exp.location}
+												</p>
+												
+											}
+											</a>
 										</div>
 										<div class="md:text-right">
 											<span class="text-base text-stone-500">{exp.period}</span>
@@ -471,7 +539,13 @@ const cvData = {
 										{pub.title}
 									</a>
 								</h3>
-								<span class="text-base text-white bg-stone-600 px-3 py-1 rounded-full font-medium whitespace-nowrap">{pub.venue}</span>
+								{pub.venueUrl ? (
+									<a href={pub.venueUrl} target="_blank" rel="noopener noreferrer" title={`Visit ${pub.venue} conference`}>
+										<span class="text-base text-white bg-stone-600 px-3 py-1 rounded-full font-medium whitespace-nowrap hover:bg-stone-700 transition-colors cursor-pointer">{pub.venue}</span>
+									</a>
+								) : (
+									<span class="text-base text-white bg-stone-600 px-3 py-1 rounded-full font-medium whitespace-nowrap">{pub.venue}</span>
+								)}
 							</div>
 							<p class="text-base text-stone-600 mb-3">
 								{pub.authors.map((author, idx) => (
