@@ -346,7 +346,7 @@ const cvData = {
 		<div class="max-w-4xl mx-auto px-6 py-16">
 			
 			<!-- Header with Avatar and Contact -->
-			<header id="top" class="flex flex-col md:flex-row gap-8 mb-16 pb-12 border-b border-stone-200 mt-10 items-center md:items-start text-center md:text-left">
+			<header id="top" class="flex flex-col md:flex-row gap-8 mb-8 pb-12 border-b border-stone-200 mt-10 items-center md:items-start text-center md:text-left">
 				<!-- Avatar -->
 				<div class="flex-shrink-0">
 					<img src="/avatar.png" alt="Nathaniel Tornow" class="w-32 h-32 rounded-full object-cover shadow-md border border-stone-300/50" />
@@ -354,71 +354,74 @@ const cvData = {
 				
 				<!-- Name and Info -->
 				<div class="flex-1">
-					<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-						<div class="flex-1">
-							<h1 class="text-5xl font-bold text-stone-800 mb-4">
-								{cvData.name}
-							</h1>
-							<p class="text-2xl text-stone-600 mb-3">PhD Student and SWE Intern</p>
-							<p class="text-xl text-stone-500 mb-6">TU Munich and PlanQC</p>
-						</div>
-						</div>
-						<!-- Contact Icons and CV Button -->
-						<div class="flex flex-col items-center md:items-start">
-							<!-- Contact Icons - Minimal style -->
-							<div class="flex gap-6 text-lg justify-center md:justify-start">
-								{cvData.contacts.map(contact => (
-									<a 
-										href={contact.url} 
-										{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-										class="text-stone-600 hover:text-stone-800 transition-colors" 
-										title={contact.title}
-									>
-										{contact.icon === 'Mail' && <Mail size={20} />}
-										{contact.icon === 'Linkedin' && <Linkedin size={20} />}
-										{contact.icon === 'Github' && <Github size={20} />}
-										{contact.icon === 'GraduationCap' && <GraduationCap size={20} />}
-									</a>
-								))}
-								<!-- CV Button on Desktop -->
+					<div class="flex-1">
+						<h1 class="text-5xl font-bold text-stone-800 mb-4">
+							{cvData.name}
+						</h1>
+						<p class="text-2xl text-stone-600 mb-3">PhD Student and SWE Intern</p>
+						<p class="text-xl text-stone-500 mb-6">TU Munich and PlanQC</p>
+					</div>
+					
+					<!-- Contact Icons and CV Button -->
+					<div class="flex flex-col items-center md:items-start">
+						<!-- Contact Icons - Minimal style -->
+						<div class="flex gap-6 text-lg justify-center md:justify-start">
+							{cvData.contacts.map(contact => (
 								<a 
-									href="/cv.pdf" 
-									target="_blank" 
-									rel="noopener noreferrer"
-									class="hidden md:inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
-									title="Download CV as PDF"
+									href={contact.url} 
+									{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+									class="text-stone-600 hover:text-stone-800 transition-colors" 
+									title={contact.title}
 								>
-									<Download size={14} />
-									CV
+									{contact.icon === 'Mail' && <Mail size={20} />}
+									{contact.icon === 'Linkedin' && <Linkedin size={20} />}
+									{contact.icon === 'Github' && <Github size={20} />}
+									{contact.icon === 'GraduationCap' && <GraduationCap size={20} />}
 								</a>
-							</div>
-							
-							<!-- CV Button on Mobile -->
-							<div class="flex justify-center md:hidden mt-3">
-								<a 
-									href="/cv.pdf" 
-									target="_blank" 
-									rel="noopener noreferrer"
-									class="inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
-									title="Download CV as PDF"
-								>
-									<Download size={14} />
-									CV
-								</a>
-							</div>
+							))}
+							<!-- CV Button on Desktop -->
+							<a 
+								href="/cv.pdf" 
+								target="_blank" 
+								rel="noopener noreferrer"
+								class="hidden md:inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
+								title="Download CV as PDF"
+							>
+								<Download size={14} />
+								CV
+							</a>
+						</div>
+						
+						<!-- CV Button on Mobile -->
+						<div class="flex justify-center md:hidden mt-3">
+							<a 
+								href="/cv.pdf" 
+								target="_blank" 
+								rel="noopener noreferrer"
+								class="inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
+								title="Download CV as PDF"
+							>
+								<Download size={14} />
+								CV
+							</a>
 						</div>
 					</div>
 			</header>
 
 			
-			<section class="mb-16">
+			<section class="mb-8">
 				<!-- Brief Introduction -->
-					<div class="mt-8 max-w-3xl">
-						<p class="text-lg text-stone-600 leading-relaxed">
-							I'm an incoming PhD student at the <a href="https://dse.in.tum.de/" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-stone-800 underline transition-colors">Systems Research Group</a> at TU Munich.
-							My research focuses on compilers and software systems for enabling scalable quantum-classical co-computing. 
-						</p>
-					</div>
+				<div class="w-full">
+					<p class="text-lg text-stone-600">
+						I'm an incoming PhD student with the <a href="https://dse.in.tum.de/" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-stone-800 underline transition-colors">Systems Research Group</a> at TU Munich.
+					</p>
+					<p class="text-lg text-stone-600 mt-1">
+						My research focuses on compilers and systems for scalable hybrid quantum-classical computing.
+					</p>
+					<p class="text-lg text-stone-600 mt-1">
+						I'm also a software engineering intern at <a href="https://planqc.eu/" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-stone-800 underline transition-colors">PlanQC</a>, a startup building neutral-atom quantum computers.
+					</p>
+				</div>
 			</section>
 
 			<hr class="border-stone-300 mb-16">
@@ -751,16 +754,18 @@ const cvData = {
 				
 				// Smooth scrolling for navigation icons
 				navIcons.forEach(icon => {
-					icon.addEventListener('click', function(e) {
+					icon.addEventListener('click', (e) => {
 						e.preventDefault();
-						const sectionName = this.getAttribute('data-section');
-						const targetElement = document.getElementById(sectionName);
-						
-						if (targetElement) {
-							targetElement.scrollIntoView({
-								behavior: 'smooth',
-								block: 'start'
-							});
+						const sectionName = (icon as HTMLElement).getAttribute('data-section');
+						if (sectionName) {
+							const targetElement = document.getElementById(sectionName);
+							
+							if (targetElement) {
+								targetElement.scrollIntoView({
+									behavior: 'smooth',
+									block: 'start'
+								});
+							}
 						}
 					});
 				});
@@ -768,7 +773,7 @@ const cvData = {
 				// Contact button functionality
 				const contactBtn = document.getElementById('contact-btn');
 				if (contactBtn) {
-					contactBtn.addEventListener('click', function(e) {
+					contactBtn.addEventListener('click', (e) => {
 						e.preventDefault();
 						window.scrollTo({
 							top: 0,
@@ -777,16 +782,16 @@ const cvData = {
 					});
 					
 					// Hover effects for contact button (desktop only)
-					contactBtn.addEventListener('mouseenter', function() {
-						const textSpan = this.querySelector('.contact-text');
+					contactBtn.addEventListener('mouseenter', () => {
+						const textSpan = contactBtn.querySelector('.contact-text') as HTMLElement;
 						if (!isMobile()) {
 							textSpan?.classList.remove('opacity-0', 'w-0');
 							textSpan?.classList.add('opacity-70', 'w-auto');
 						}
 					});
 					
-					contactBtn.addEventListener('mouseleave', function() {
-						const textSpan = this.querySelector('.contact-text');
+					contactBtn.addEventListener('mouseleave', () => {
+						const textSpan = contactBtn.querySelector('.contact-text') as HTMLElement;
 						if (!isMobile()) {
 							textSpan?.classList.add('opacity-0', 'w-0');
 							textSpan?.classList.remove('opacity-70', 'w-auto');
@@ -802,19 +807,19 @@ const cvData = {
 				
 				// Add hover effects for better UX (desktop only)
 				navIcons.forEach(icon => {
-					icon.addEventListener('mouseenter', function() {
-						const textSpan = this.querySelector('.nav-text');
+					icon.addEventListener('mouseenter', () => {
+						const textSpan = (icon as HTMLElement).querySelector('.nav-text') as HTMLElement;
 						// Only show hover effects on desktop and if not active
-						if (!isMobile() && !this.classList.contains('bg-stone-200')) {
+						if (!isMobile() && !(icon as HTMLElement).classList.contains('bg-stone-200')) {
 							textSpan?.classList.remove('opacity-0', 'w-0');
 							textSpan?.classList.add('opacity-70', 'w-auto');
 						}
 					});
 					
-					icon.addEventListener('mouseleave', function() {
-						const textSpan = this.querySelector('.nav-text');
+					icon.addEventListener('mouseleave', () => {
+						const textSpan = (icon as HTMLElement).querySelector('.nav-text') as HTMLElement;
 						// Only handle hover effects on desktop and if not active
-						if (!isMobile() && !this.classList.contains('bg-stone-200')) {
+						if (!isMobile() && !(icon as HTMLElement).classList.contains('bg-stone-200')) {
 							textSpan?.classList.add('opacity-0', 'w-0');
 							textSpan?.classList.remove('opacity-70', 'w-auto');
 						}
