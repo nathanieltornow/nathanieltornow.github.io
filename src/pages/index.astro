@@ -1,839 +1,313 @@
 ---
-import { FileText, Github, Presentation, Mail, Linkedin, GraduationCap, Paperclip, BookOpen, Briefcase, ScrollText, FileSearch, Mic, User, Download } from 'lucide-astro';
+import { FileText, Github, Mail, Linkedin, GraduationCap, Paperclip, Download } from 'lucide-astro';
 
-// CV data
 const cvData = {
   name: "Nathaniel Tornow",
-  email: "nate.tornow@gmail.com",
+  email: "nathanieltornow@tum.de",
   phone: "+49 151 70502500",
   social: {
     linkedin: "nathanieltornow",
     github: "nathanieltornow",
-    scholar: "f5_ulrIAAAAJ"
+    scholar: "f5_ulrIAAAAJ",
   },
   contacts: [
-    {
-      type: "email",
-      url: "mailto:nate.tornow@gmail.com",
-      title: "Email",
-      icon: "Mail"
-    },
-    {
-      type: "linkedin", 
-      url: "https://linkedin.com/in/nathanieltornow",
-      title: "LinkedIn",
-      icon: "Linkedin",
-      external: true
-    },
-    {
-      type: "github",
-      url: "https://github.com/nathanieltornow", 
-      title: "GitHub",
-      icon: "Github",
-      external: true
-    },
-    {
-      type: "scholar",
-      url: "https://scholar.google.com/citations?user=f5_ulrIAAAAJ",
-      title: "Google Scholar", 
-      icon: "GraduationCap",
-      external: true
-    }
+    { type: "email", url: "mailto:nathanieltornow@tum.de", title: "Email", icon: "Mail" },
+    { type: "linkedin", url: "https://linkedin.com/in/nathanieltornow", title: "LinkedIn", icon: "Linkedin", external: true },
+    { type: "github", url: "https://github.com/nathanieltornow", title: "GitHub", icon: "Github", external: true },
+    { type: "scholar", url: "https://scholar.google.com/citations?user=f5_ulrIAAAAJ", title: "Google Scholar", icon: "GraduationCap", external: true },
   ],
   education: [
-	{
-      institution: "Systems Research Group, Technical University of Munich",
-      institutionUrl: "https://dse.in.tum.de/",
+    {
+      institution: "TU Munich",
+      institutionUrl: "https://www.tum.de/en/",
       degree: "PhD Computer Science",
-      period: "2025 - Present",
+      period: "Nov 2025 - Present",
       logo: "/tum.png",
-	  description: "Topic: Compilers and Software Systems for Quantum Computing"
+      description: "Advisor: Prof. Pramod Bhatotia",
     },
     {
-      institution: "Technical University of Munich",
+      institution: "TU Munich",
       institutionUrl: "https://www.tum.de/en/",
       degree: "MSc Computer Science",
-      period: "2022 - 2025",
+      period: "Oct 2022 - Apr 2025",
       thesis: "Scalable Hybrid Quantum-Classical Computing with Tensor Networks",
       thesisLink: "https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2024/winter/docs/msc_nathaniel_tornow_scalable_hybrid_quantum_classical_computing_with_tensor_networks.pdf",
-      logo: "/tum.png"
+      logo: "/tum.png",
     },
     {
-      institution: "Technical University of Munich", 
+      institution: "TU Munich",
       institutionUrl: "https://www.tum.de/en/",
       degree: "BSc Computer Science",
-      period: "2018 - 2022",
+      period: "Oct 2018 - Sep 2022",
       thesis: "DQS: A Framework for Efficient Distributed Simulation of Large Quantum Circuits",
       thesisLink: "https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2022/summer/docs/bsc_tornow_dqs_a_framework_for_efficient_distributed_simulation_of_large_quantum_circuits.pdf",
-      logo: "/tum.png"
-    }
+      logo: "/tum.png",
+    },
   ],
   experience: [
     {
-      company: "PlanQC",
-      companyUrl: "https://planqc.eu/",
-      position: "Software Engineer Intern",
+      company: "Systems Research Group, TU Munich",
+      companyUrl: "https://dse.in.tum.de",
+      position: "PhD Student",
       location: "Munich",
-      period: "Apr 2025 - Present",
+      period: "Nov 2025 - Present",
+      logo: "/tum.png",
+      details: ["Research on compiler and runtime systems for heterogeneous quantum-classical computing"],
+    },
+    {
+      company: "planqc",
+      companyUrl: "https://planqc.eu",
+      position: "Quantum Software Engineer Intern",
+      location: "Munich",
+      period: "Apr 2025 - Oct 2025",
       logo: "/planqc.png",
       details: [
-		"Development of a compiler for quantum circuits to PlanQC's native Neutral-Atom qubit instructions"
-      ]
-    },
-	{
-      company: "Technical University of Munich",
-      companyUrl: "https://dse.in.tum.de/",
-      position: "Student Research Assistant", 
-      location: "Munich",
-      period: "Jul 2021 - Mar 2025",
-      department: "Systems Research Group",
-      logo: "/tum.png",
-      details: [
-		"Research and implementation of scalable quantum-classical software systems (Python, CUDA-Quantum)",
-	]
+        "Developed compiler infrastructure and IRs for neutral-atom QPUs",
+      ],
     },
     {
-      company: "Leibniz Supercomputing Centre",
-      companyUrl: "https://www.quantum.lrz.de/",
-      position: "Student Research Assistant",
-      location: "Munich", 
+      company: "Quantum Computing Group, Leibniz Supercomputing Centre",
+      companyUrl: "https://www.lrz.de/technologien/quantum/",
+      position: "Research Assistant",
+      location: "Munich",
       period: "Oct 2022 - Mar 2025",
-      department: "Quantum Computing and Technologies",
       logo: "/lrz.png",
       details: [
-		"Research on compilers and runtime systems for integrating quantum computers into HPC (LLVM, C++)",
-      ]
+        "Research on quantum-HPC integration",
+      ],
     },
-
     {
-      company: "Technical University of Munich",
-      companyUrl: "https://www.tum.de/en/",
-      position: "Teaching Assistant",
+      company: "Systems Research Group, TU Munich",
+      companyUrl: "https://dse.in.tum.de",
+      position: "Research Assistant",
       location: "Munich",
-      period: "Oct 2019 - Sep 2023",
-      department: "Computer Science Department",
+      period: "Jul 2021 - Mar 2025",
       logo: "/tum.png",
-      details: [
-		"Lectures: Discrete Probability Theory, Distributed Systems",
-		"Labs: Introduction to Programming, Systems Programming Lab, Distributed Systems Lab",
-      ]
+      details: ["Designed and implemented compiler and runtime systems for hybrid quantum-classical computing"],
     },
     {
       company: "Leibniz Supercomputing Centre",
       companyUrl: "https://www.lrz.de",
-      position: "Software Developer Working Student",
+      position: "Software Developer (Working Student)",
       location: "Munich",
       period: "Sep 2020 - Apr 2021",
       logo: "/lrz.png",
-      details: [
-        "Full stack web development for the citizen-science portal Baysics (Django, JavaScript)"
-      ]
-    }
-  ],
-  academicExperience: [
-    {
-      role: "Thesis Advisor",
-      description: "CompTN: A Compiler Infrastructure for High-Performance Tensor Network Computing",
-      type: "BSc",
-      link: "https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2024/summer/docs/bsc_moritz_kapperer_comptn_a_compiler_infrastructure_for_high_performance_tensor_network_computing.pdf"
+      details: ["Full-stack web development for the citizen-science portal Baysics (Python, JavaScript)"],
     },
-    {
-      role: "External Reviewer",
-      description: "ASPLOS'24"
-    },
-    {
-      role: "Conference Student Volunteer",
-      description: "IEEE Quantum Week 2024"
-    }
   ],
   publications: [
 	{
-      title: "Orchestrating Quantum Cloud Environments with Qonductor",
-      authors: ["Emmanouil Giortamis", "Francisco Romao", "Nathaniel Tornow", "Dmitry Lugovoy", "Pramod Bhatotia"],
-      venue: "SC'25",
-      doi: "10.48550/arXiv.2408.04312",
-      links: {
-        paper: "https://arxiv.org/abs/2408.04312",
-      },
-	  venueUrl: "https://sc25.supercomputing.org/",
-      description: [
-      ]
-    },
-    {
       title: "QVM: Quantum Gate Virtualization Machine",
       authors: ["Nathaniel Tornow", "Emmanouil Giortamis", "Pramod Bhatotia"],
       venue: "PLDI'25",
       venueUrl: "https://pldi25.sigplan.org/",
       doi: "10.1145/3729290",
-      links: {
-        paper: "https://dse.in.tum.de/wp-content/uploads/2025/06/QVM_PLDI_2025.pdf",
-        code: "https://github.com/TUM-DSE/qvm",
-		slides: "https://docs.google.com/presentation/d/1xWrvSssuuQzs1peqt5TpN9HrQvoKM5VKe-6xOblAQ0E/edit?usp=sharing"
-      },
-      description: [
-      ]
+      links: { paper: "https://doi.org/10.1145/3729290" },
+      journal: "Proceedings of the ACM on Programming Languages (PLDI 25)",
     },
     {
-      title: "QOS: Quantum Operating System", 
+      title: "Qonductor: A Cloud Orchestrator for Quantum Computing",
+      authors: ["Emmanouil Giortamis", "Francisco Romao", "Nathaniel Tornow", "Dmitry Lugovoy", "Pramod Bhatotia"],
+      venue: "SC'25",
+      doi: "10.1145/3712285.3759785",
+      links: { paper: "https://www.doi.org/10.1145/3712285.3759785" },
+      venueUrl: "https://sc25.supercomputing.org/",
+      journal: "International Conference for High Performance Computing, Networking, Storage and Analysis (SC 25)",
+    },
+    {
+      title: "QOS: Quantum Operating System",
       authors: ["Emmanouil Giortamis", "Francisco Romao", "Nathaniel Tornow", "Pramod Bhatotia"],
       venue: "OSDI'25",
       venueUrl: "https://www.usenix.org/conference/osdi25",
-      doi: "10.48550/arXiv.2406.19120",
-      links: {
-        paper: "https://dse.in.tum.de/wp-content/uploads/2025/06/QOS-OSDI-2025.pdf",
-        code: "https://github.com/TUM-DSE/QOS",
-      },
-      description: [
-      ]
+      links: { paper: "https://www.usenix.org/conference/osdi25/presentation/giortamis" },
+      journal: "USENIX Symposium on Operating Systems Design and Implementation (OSDI 25)",
     },
     {
       title: "Quantum-Classical Computing via Tensor Networks",
       authors: ["Nathaniel Tornow", "Christian B. Mendl", "Pramod Bhatotia"],
-      venue: "ArXiv'24",
+      venue: "arXiv'24",
       doi: "10.48550/arXiv.2410.15080",
-      links: {
-        paper: "https://arxiv.org/abs/2410.15080",
-        code: "https://github.com/nathanieltornow/qtpu",
-      },
-      description: [
-      ]
+      links: { paper: "https://arxiv.org/abs/2410.15080", code: "https://github.com/nathantornow/qtpu" },
     },
-    
-    {
-      title: "FlexLog: A Shared Log for Stateful Serverless Computing",
-      authors: ["Dimitra Giantsidi", "Emmanouil Giortamis", "Nathaniel Tornow", "Florin Dinu", "Pramod Bhatotia"],
-      venue: "HPDC'23",
-      venueUrl: "https://dl.acm.org/doi/proceedings/10.1145/3588195",
-      doi: "10.1145/3588195.3592993",
-      links: {
-        paper: "https://dl.acm.org/doi/10.1145/3588195.3592993",
-        code: "https://github.com/TUM-DSE/FlexLog",
-        slides: "https://dse.in.tum.de/wp-content/uploads/2023/08/FlexLog-HPDC23-presentation.pdf"
-      },
-      description: [
-      ]
-    }
+    // {
+    //   title: "FlexLog: A Shared Log for Stateful Serverless Computing",
+    //   authors: ["Dimitra Giantsidi", "Emmanouil Giortamis", "Nathaniel Tornow", "Florin Dinu", "Pramod Bhatotia"],
+    //   venue: "HPDC'23",
+    //   venueUrl: "https://dl.acm.org/doi/proceedings/10.1145/3588195",
+    //   doi: "10.1145/3588195.3592993",
+    //   links: { paper: "https://doi.org/10.1145/3588195.3592993" },
+    //   journal: "International Symposium on High-Performance Parallel and Distributed Computing (HPDC 23)",
+    // },
   ],
-  talks: [
-    {
-      title: "QVM: Quantum Gate Virtualization Machine",
-      venue: "PLDI'25, Seoul, South Korea",
-      date: "Jun 2025"
-    },
-    {
-      title: "Extending vHive: Support for gVisor Sandboxes",
-      venue: "Ease-Lab at the University of Edinburgh",
-      date: "Aug 2021"
-    }
-  ]
 };
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Nathaniel Tornow </title>
-	</head>
-	<body class="bg-stone-50 text-stone-800 min-h-screen">
-		
-		<!-- Modern Top Navigation Bar -->
-		<nav class="fixed md:top-4 bottom-4 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none">
-			<div class="bg-white/95 backdrop-blur-md rounded-xl shadow-lg border border-stone-200/50 px-4 h-12 flex items-center pointer-events-auto">
-				<div class="flex items-center gap-1">
-					<!-- Contact Button -->
-					<button id="contact-btn" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70 mr-2">
-						<User size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors flex-shrink-0" />
-						<span class="contact-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block whitespace-nowrap">Contact</span>
-					</button>
-					
-					<!-- Divider -->
-					<div class="w-px h-6 bg-stone-300 mr-2 hidden md:block"></div>
-					
-					<!-- Education -->
-					<button data-section="education" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
-						<GraduationCap size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors flex-shrink-0" />
-						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block whitespace-nowrap">Education</span>
-					</button>
-					
-					<!-- Experience -->
-					<button data-section="experience" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
-						<Briefcase size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
-						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Experience</span>
-					</button>
-					
-					<!-- Publications -->
-					<button data-section="publications" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
-						<ScrollText size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
-						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Publications</span>
-					</button>
-					
-					<!-- Talks -->
-					<button data-section="talks" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
-						<Mic size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
-						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Talks</span>
-					</button>
-					
-					<!-- Academic Experience -->
-					<button data-section="academic-experience" class="nav-icon group relative flex items-center gap-2 px-3 h-8 rounded-lg transition-all duration-300 hover:bg-stone-100/70">
-						<BookOpen size={18} class="text-stone-500 group-hover:text-stone-700 transition-colors" />
-						<span class="nav-text text-sm font-medium text-stone-700 opacity-0 w-0 overflow-hidden transition-all duration-300 hidden md:block">Academic Experience</span>
-					</button>
-				</div>
-			</div>
-		</nav>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Nathaniel Tornow — Academic Homepage</title>
+  </head>
+  <body class="bg-gradient-to-b from-stone-100 via-white to-stone-100 text-stone-900 min-h-screen">
+    <main class="max-w-6xl mx-auto px-6 py-12 lg:py-16">
+      <div class="grid lg:grid-cols-[320px,1fr] gap-10">
+        <!-- Sidebar / Profile Card -->
+        <aside class="lg:sticky top-8 h-fit bg-white/90 backdrop-blur rounded-2xl border border-stone-200 shadow-md p-6 flex flex-col gap-6">
+          <div class="flex flex-col items-center text-center gap-4">
+            <img src="/avatar.png" alt={cvData.name} class="w-28 h-28 rounded-2xl object-cover border border-stone-200 shadow-sm" />
+            <div>
+              <h1 class="text-3xl font-bold leading-tight">{cvData.name}</h1>
+              <p class="text-stone-600 text-lg">PhD Student, TU Munich</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-2">
+            <a aria-label="Email" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-stone-200 hover:border-stone-300 bg-stone-50 hover:bg-white transition text-stone-700" href={`mailto:${cvData.email}`}>
+              <Mail size={15} />
+            </a>
+            <a aria-label="Google Scholar" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-stone-200 hover:border-stone-300 bg-stone-50 hover:bg-white transition text-stone-700" href={`https://scholar.google.com/citations?user=${cvData.social.scholar}`} target="_blank" rel="noreferrer">
+              <GraduationCap size={15} />
+            </a>
+            <a aria-label="GitHub" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-stone-200 hover:border-stone-300 bg-stone-50 hover:bg-white transition text-stone-700" href={`https://github.com/${cvData.social.github}`} target="_blank" rel="noreferrer">
+              <Github size={15} />
+            </a>
+            <a aria-label="LinkedIn" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-stone-200 hover:border-stone-300 bg-stone-50 hover:bg-white transition text-stone-700" href={`https://linkedin.com/in/${cvData.social.linkedin}`} target="_blank" rel="noreferrer">
+              <Linkedin size={15} />
+            </a>
+          </div>
+          <a href="/cv.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium rounded-lg border border-stone-200 text-stone-700 bg-white hover:border-stone-300 hover:text-stone-900 transition">
+            <Download size={14} />
+            <span>Download CV</span>
+          </a>
+          <div class="pt-4 border-t border-stone-200">
+            <nav class="flex flex-wrap gap-2 text-sm" role="tablist" aria-label="Section navigation">
+              <a class="inline-flex items-center px-3 py-1.5 rounded-lg border border-stone-200 bg-stone-50 hover:bg-white hover:border-stone-300 transition" href="#about" role="tab">About</a>
+              <a class="inline-flex items-center px-3 py-1.5 rounded-lg border border-stone-200 bg-stone-50 hover:bg-white hover:border-stone-300 transition" href="#publications" role="tab">Publications</a>
+              <a class="inline-flex items-center px-3 py-1.5 rounded-lg border border-stone-200 bg-stone-50 hover:bg-white hover:border-stone-300 transition" href="#experience" role="tab">Experience</a>
+              <a class="inline-flex items-center px-3 py-1.5 rounded-lg border border-stone-200 bg-stone-50 hover:bg-white hover:border-stone-300 transition" href="#education" role="tab">Education</a>
+            </nav>
+          </div>
+        </aside>
 
-		<!-- Old Navigation (Hidden but kept for potential fallback) -->
-		<div class="fixed top-4 left-4 z-50 hidden">
-			<!-- Menu Button -->
-			<button id="menu-btn" class="flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-stone-200/50 hover:bg-white transition-all duration-200 hover:shadow-xl">
-				<svg id="menu-icon" class="w-5 h-5 text-stone-600 hover:text-stone-800 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-				</svg>
-				<svg id="close-icon" class="w-5 h-5 text-stone-600 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-				</svg>
-			</button>
-			
-			<!-- Menu Dropdown - Click-only for both Mobile and Desktop -->
-			<div id="menu-dropdown" class="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-stone-200/50 py-3 opacity-0 scale-95 pointer-events-none transition-all duration-200 origin-top-right">
-				<!-- Navigation Links -->
-				<div class="px-2">
-					<a href="#education" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<GraduationCap size={16} class="text-stone-500" />
-						Education
-					</a>
-					<a href="#experience" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<Briefcase size={16} class="text-stone-500" />
-						Experience
-					</a>
-					
-					<a href="#publications" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<FileSearch size={16} class="text-stone-500" />
-						Publications
-					</a>
-					<a href="#talks" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<Mic size={16} class="text-stone-500" />
-						Talks
-					</a>
-					<a href="#academic-experience" class="nav-link flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150">
-						<BookOpen size={16} class="text-stone-500" />
-						Academic Experience
-					</a>
-				</div>
-				
-				<!-- Divider -->
-				<div class="border-t border-stone-200/70 my-3 mx-4"></div>
-				
-				<!-- Contact Links -->
-				<div class="px-2">
-					{cvData.contacts.map(contact => (
-						<a 
-							href={contact.url} 
-							{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-							class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-100/70 rounded-xl transition-all duration-150"
-						>
-							{contact.icon === 'Mail' && <Mail size={16} class="text-stone-500" />}
-							{contact.icon === 'Linkedin' && <Linkedin size={16} />}
-							{contact.icon === 'Github' && <Github size={16} class="text-stone-700" />}
-							{contact.icon === 'GraduationCap' && <GraduationCap size={16} />}
-							{contact.title}
-						</a>
-					))}
-				</div>
-			</div>
-		</div>
-		
-		<!-- Main Container --> 
-		<div class="max-w-4xl mx-auto px-6 py-16">
-			
-			<!-- Header with Avatar and Contact -->
-			<header id="top" class="flex flex-col md:flex-row gap-8 mb-8 pb-12 border-b border-stone-200 mt-10 items-center md:items-start text-center md:text-left">
-				<!-- Avatar -->
-				<div class="flex-shrink-0">
-					<img src="/avatar.png" alt="Nathaniel Tornow" class="w-32 h-32 rounded-full object-cover shadow-md border border-stone-300/50" />
-				</div>
-				
-				<!-- Name and Info -->
-				<div class="flex-1">
-					<div class="flex-1">
-						<h1 class="text-5xl font-bold text-stone-800 mb-4">
-							{cvData.name}
-						</h1>
-						<p class="text-2xl text-stone-600 mb-3">PhD Student and SWE Intern</p>
-						<p class="text-xl text-stone-500 mb-6">TU Munich and PlanQC</p>
-					</div>
-					
-					<!-- Contact Icons and CV Button -->
-					<div class="flex flex-col items-center md:items-start">
-						<!-- Contact Icons - Minimal style -->
-						<div class="flex gap-6 text-lg justify-center md:justify-start">
-							{cvData.contacts.map(contact => (
-								<a 
-									href={contact.url} 
-									{...(contact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-									class="text-stone-600 hover:text-stone-800 transition-colors" 
-									title={contact.title}
-								>
-									{contact.icon === 'Mail' && <Mail size={20} />}
-									{contact.icon === 'Linkedin' && <Linkedin size={20} />}
-									{contact.icon === 'Github' && <Github size={20} />}
-									{contact.icon === 'GraduationCap' && <GraduationCap size={20} />}
-								</a>
-							))}
-							<!-- CV Button on Desktop -->
-							<a 
-								href="/cv.pdf" 
-								target="_blank" 
-								rel="noopener noreferrer"
-								class="hidden md:inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
-								title="Download CV as PDF"
-							>
-								<Download size={14} />
-								CV
-							</a>
-						</div>
-						
-						<!-- CV Button on Mobile -->
-						<div class="flex justify-center md:hidden mt-3">
-							<a 
-								href="/cv.pdf" 
-								target="_blank" 
-								rel="noopener noreferrer"
-								class="inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 text-sm transition-colors"
-								title="Download CV as PDF"
-							>
-								<Download size={14} />
-								CV
-							</a>
-						</div>
-					</div>
-			</header>
+        <!-- Main Content -->
+        <div class="space-y-14">
+          <section id="about" class="space-y-4">
+            <p class="text-sm uppercase tracking-[0.2em] text-stone-500">About</p>
+            <p class="text-lg text-stone-700 leading-relaxed">
+              I'm a PhD student with the <a class="underline hover:text-stone-900" href="https://dse.in.tum.de/" target="_blank" rel="noreferrer">Systems Research Group</a> at TU Munich, advised by Prof. Pramod Bhatotia. My work spans compiler IRs, runtime systems, and tools that make quantum accelerators usable alongside classical compute.
+            </p>
+          </section>
 
-			
-			<section class="mb-8">
-				<!-- Brief Introduction -->
-				<div class="w-full">
-					<p class="text-lg text-stone-600">
-						I'm an incoming PhD student with the <a href="https://dse.in.tum.de/" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-stone-800 underline transition-colors">Systems Research Group</a> at TU Munich.
-					</p>
-					<p class="text-lg text-stone-600 mt-1">
-						My research focuses on compilers and systems for scalable hybrid quantum-classical computing.
-					</p>
-					<p class="text-lg text-stone-600 mt-1">
-						I'm also a software engineering intern at <a href="https://planqc.eu/" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-stone-800 underline transition-colors">PlanQC</a>, a startup building neutral-atom quantum computers.
-					</p>
-				</div>
-			</section>
+          <section id="publications" class="space-y-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <div>
+                <h2 class="text-2xl font-bold">Recent Publications</h2>
+              </div>
+              <a href={`https://scholar.google.com/citations?user=${cvData.social.scholar}`} target="_blank" rel="noreferrer" class="text-sm text-stone-600 hover:text-stone-900 underline">Google Scholar</a>
+            </div>
+            <div class="space-y-6">
+              {cvData.publications.map(pub => (
+                <article class="p-4 rounded-xl border border-stone-200 bg-white/70">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <h3 class="text-xl font-semibold leading-snug">
+                      <a class="hover:text-stone-700 underline" href={pub.links.paper} target="_blank" rel="noreferrer">{pub.title}</a>
+                    </h3>
+                    {pub.venue && (
+                      <span class="text-xs font-medium px-3 py-1 rounded-full bg-stone-100 text-stone-600 border border-stone-200">{pub.venue}</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-stone-600 mt-2">
+                    {pub.authors.map((author, idx) => (
+                      <>
+                        {author === cvData.name ? <span class="font-semibold">{author}</span> : author}
+                        {idx < pub.authors.length - 1 ? ', ' : ''}
+                      </>
+                    ))}
+                  </p>
+                  {pub.journal && (
+                    <p class="text-sm text-stone-500 mt-2">
+                      {pub.venueUrl ? (
+                        <a class="text-stone-500 hover:text-stone-800 hover:underline underline-offset-2 decoration-stone-300" href={pub.venueUrl} target="_blank" rel="noreferrer">{pub.journal}</a>
+                      ) : (
+                        pub.journal
+                      )}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
 
-			<hr class="border-stone-300 mb-16">
-			<!-- Education -->
-			<section id="education" class="mb-16">
-				<h2 class="text-3xl font-bold mb-8 text-stone-800">Education</h2>
-				{cvData.education.map(edu => (
-					<div class="mb-8 last:mb-0">
-						<!-- Logo and Title Row -->
-						<div class="flex gap-4 items-start mb-2">
-							<div>
-								<a href={edu.institutionUrl} target="_blank" rel="noopener noreferrer" title={`Visit ${edu.institution}`}>
-									<img src={edu.logo} alt={`${edu.institution} logo`} class="w-10 h-10 object-contain hover:opacity-80 transition-opacity" />
-								</a>
-							</div>
-							<div class="flex-1">
-								<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
-									<div class="flex-1">
-										<h3 class="font-semibold text-stone-800 text-lg">{edu.degree}</h3>
-										<p class="text-stone-600 text-base">
-											<a href={edu.institutionUrl} target="_blank" rel="noopener noreferrer" class="hover:text-stone-800 transition-colors">
-												{edu.institution}
-											</a>
-										</p>
-									</div>
-									<div class="md:text-right">
-										<span class="text-base text-stone-500">{edu.period}</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Thesis Link (Mobile: under content, Desktop: under content) -->
-						<div class="ml-14">
-							{edu.thesis && (
-								<div class="mt-2">
-									{edu.thesisLink && (
-										<a href={edu.thesisLink} 
-										   target="_blank" 
-										   rel="noopener"
-										   class="flex items-center gap-2 text-stone-500 hover:text-stone-700 transition-colors"
-										   title={edu.thesis}>
-											<FileText size={14} />
-											<span class="text-base">Thesis</span>
-										</a>
-									)}
-								</div>
-							)}
-							{
-								edu.description && (
-									<p class="text-base text-stone-600 mt-2">{edu.description}</p>
-								)
-							}
-						</div>
-					</div>
-				))}
-			</section>
+          <section id="experience" class="space-y-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <div>
+                <h2 class="text-3xl font-bold">Experience</h2>
+              </div>
+            </div>
+            <div class="space-y-6">
+              {cvData.experience.map(exp => (
+                <article class="p-4 rounded-xl border border-stone-200 bg-white/70">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h3 class="text-xl font-semibold leading-snug">{exp.position}</h3>
+                      <p class="text-sm text-stone-600">
+                        <a class="hover:text-stone-900" href={exp.companyUrl} target="_blank" rel="noreferrer">{exp.company}</a> · {exp.location}
+                      </p>
+                    </div>
+                    <span class="text-sm text-stone-500 whitespace-nowrap">{exp.period}</span>
+                  </div>
+                  {exp.details && (
+                    <ul class="mt-3 space-y-1 text-stone-700 text-sm">
+                      {exp.details.map(detail => (
+                        <li class="flex items-start gap-2">
+                          <span class="text-stone-400">•</span>
+                          <span class="leading-relaxed">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </div>
+          </section>
 
-			<!-- Divider -->
-			<hr class="border-stone-300 mb-16">
+          <section id="education" class="space-y-6">
+            <div class="flex items-baseline justify-between gap-3">
+              <div>
+                <h2 class="text-3xl font-bold">Education</h2>
+              </div>
+            </div>
+            <div class="space-y-6">
+              {cvData.education.map(edu => (
+                <article class="p-4 rounded-xl border border-stone-200 bg-white/70">
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h3 class="text-xl font-semibold leading-snug">{edu.degree}</h3>
+                      <p class="text-sm text-stone-600">
+                        <a class="hover:text-stone-900" href={edu.institutionUrl} target="_blank" rel="noreferrer">{edu.institution}</a>
+                      </p>
+                    </div>
+                    <span class="text-sm text-stone-500 whitespace-nowrap">{edu.period}</span>
+                  </div>
+                  {edu.thesis && (
+                    <div class="mt-3 text-sm text-stone-700 flex items-center gap-2">
+                      <FileText size={14} />
+                      {edu.thesisLink ? (
+                        <a class="underline hover:text-stone-900" href={edu.thesisLink} target="_blank" rel="noreferrer">{edu.thesis}</a>
+                      ) : (
+                        <span>{edu.thesis}</span>
+                      )}
+                    </div>
+                  )}
+                  {edu.description && <p class="text-sm text-stone-600 mt-2">{edu.description}</p>}
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
 
-			<!-- Experience -->
-			<section id="experience" class="mb-16">
-				<h2 class="text-3xl font-bold mb-8 text-stone-800">Experience</h2>
-				<div class="space-y-8">
-					{cvData.experience.map(exp => (
-						<div class="pb-6 border-b border-stone-200 last:border-b-0 last:pb-0">
-							<!-- Logo and Title Row -->
-							<div class="flex gap-4 items-start mb-2">
-								<div class="flex-shrink-0">
-									<a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" title={`Visit ${exp.company}`}>
-										<img src={exp.logo} alt={`${exp.company} logo`} class="w-10 h-10 object-contain hover:opacity-80 transition-opacity" />
-									</a>
-								</div>
-								<div class="flex-1">
-									<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
-										<div class="flex-1">
-											<h3 class="font-semibold text-stone-800 text-lg">{exp.position}</h3>
-													<a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" class="hover:text-stone-800 transition-colors ">
-
-											{exp.department ?
-												<p class="text-stone-600 text-base">
-														{exp.department}, {exp.company}, {exp.location}
-												</p>
-												:
-												<p class="text-stone-600 text-base">
-														{exp.company}, {exp.location}
-												</p>
-												
-											}
-											</a>
-										</div>
-										<div class="md:text-right">
-											<span class="text-base text-stone-500">{exp.period}</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Details -->
-							<div class="ml-14">
-								{exp.details && (
-									<ul class="text-base text-stone-600 mt-2">
-										{exp.details.map(detail => (
-											<li class="flex items-start">
-												<span class="text-stone-400 mr-3 mt-0.5 flex-shrink-0">•</span>
-												<span class="leading-relaxed">{detail}</span>
-											</li>
-										))}
-									</ul>
-								)}
-							</div>
-						</div>
-					))}
-				</div>
-			</section>
-
-			<!-- Divider -->
-			<hr class="border-stone-300 mb-16">
-
-			<!-- Publications -->
-			<section id="publications" class="mb-16">
-				<h2 class="text-3xl font-bold mb-8 text-stone-800">Publications</h2>
-				<div class="space-y-8">
-					{cvData.publications.map(pub => (
-						<div class="pb-6 border-b border-stone-200 last:border-b-0 last:pb-0">
-							<div class="flex justify-between items-start mb-3">
-								<h3 class="font-semibold text-stone-800 flex-1 pr-4 underline text-lg">
-									<a href={pub.links.paper} target="_blank" rel="noopener" class="hover:text-stone-600">
-										{pub.title}
-									</a>
-								</h3>
-								{pub.venueUrl ? (
-									<a href={pub.venueUrl} target="_blank" rel="noopener noreferrer" title={`Visit ${pub.venue} conference`}>
-										<span class="text-base text-white bg-stone-600 px-3 py-1 rounded-full font-medium whitespace-nowrap hover:bg-stone-700 transition-colors cursor-pointer">{pub.venue}</span>
-									</a>
-								) : (
-									<span class="text-base text-white bg-stone-600 px-3 py-1 rounded-full font-medium whitespace-nowrap">{pub.venue}</span>
-								)}
-							</div>
-							<p class="text-base text-stone-600 mb-3">
-								{pub.authors.map((author, idx) => (
-									<>
-										{author === cvData.name ? 
-											<span class="font-bold">{author}</span> : 
-											author
-										}
-										{idx < pub.authors.length - 1 ? ", " : ""}
-									</>
-								))}
-							</p>
-							
-							{/* Publication Links */}
-							<div class="flex gap-4 mb-4">
-								<a href={pub.links.paper} target="_blank" rel="noopener" 
-								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
-									<FileText size={16} />
-									<span class="text-sm font-medium">Paper</span>
-								</a>
-								
-								{pub.links.code &&
-								<a href={pub.links.code} target="_blank" rel="noopener" 
-								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
-									<Github size={16} />
-									<span class="text-sm font-medium">Code</span>
-								</a>
-								}
-								{pub.links.slides && 
-								<a href={pub.links.slides} target="_blank" rel="noopener" 
-								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
-									<Presentation size={16} />
-									<span class="text-sm font-medium">Slides</span>
-								</a>
-								}
-								{pub.doi &&
-								<a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener" 
-								   class="flex items-center gap-2 text-stone-600 hover:text-stone-800 transition-colors">
-									<Paperclip size={16} />
-									<span class="text-sm font-medium">DOI</span>
-								</a>
-								}
-
-							</div>
-							
-							{pub.description && (
-								<ul class="text-base text-stone-600 mt-4">
-									{pub.description.map(desc => (
-										<li class="flex items-start">
-											<span class="text-stone-400 mr-3 flex-shrink-0">•</span>
-											<span class="leading-relaxed">{desc}</span>
-										</li>
-									))}
-								</ul>
-							)}
-						</div>
-					))}
-				</div>
-			</section>
-
-			<!-- Divider -->
-			<hr class="border-stone-300 mb-16">
-
-			<!-- Talks -->
-			<section id="talks" class="mb-16">
-				<h2 class="text-3xl font-bold mb-8 text-stone-800">Talks</h2>
-				<div class="space-y-8">
-					{cvData.talks.map(talk => (
-						<div class="pb-6 border-b border-stone-200 last:border-b-0 last:pb-0">
-							<h3 class="font-semibold text-stone-800 mb-3 text-lg">{talk.title}</h3>
-							<p class="text-base text-stone-600 mb-2">{talk.venue}</p>
-							<span class="text-base text-stone-500">{talk.date}</span>
-						</div>
-					))}
-				</div>
-			</section>
-			
-			<!-- Divider -->
-			<hr class="border-stone-300 mb-16">
-
-			<!-- Academic Experience -->
-			<section id="academic-experience" class="mb-16">
-				<h2 class="text-3xl font-bold mb-8 text-stone-800">Academic Experience</h2>
-				<div class="space-y-6">
-					{cvData.academicExperience.map(exp => (
-						<div class="pb-6 border-b border-stone-200 last:border-b-0 last:pb-0">
-							<h3 class="font-semibold text-stone-800 text-lg mb-2">{exp.role}</h3>
-							<div class="flex items-start gap-2">
-								<span class="text-base text-stone-600 leading-relaxed">
-									{exp.description}
-									{exp.type && (
-										<span class="ml-2">
-											({exp.type}
-											{exp.link && (
-												<>
-													, <a href={exp.link} 
-														target="_blank" 
-														rel="noopener"
-														class="inline-flex items-center gap-1 text-stone-500 hover:text-stone-700 transition-colors"
-														title="View thesis">
-														<FileText size={12} />
-														<span class="underline">link</span>
-													</a>
-												</>
-											)}
-											)
-										</span>
-									)}
-								</span>
-							</div>
-						</div>
-					))}
-				</div>
-			</section>
-			<!-- Footer -->
-			<footer class="pt-12 border-t border-stone-200 text-center text-base text-stone-500">
-				<p>Last updated: June 2025</p>
-			</footer>
-		</div>
-		
-		
-
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				// Navigation elements
-				const navIcons = document.querySelectorAll('.nav-icon');
-				
-				// Check if device is mobile
-				function isMobile() {
-					return window.innerWidth < 768; // md breakpoint
-				}
-				
-				// Section highlighting and text reveal
-				function handleScroll() {
-					const sections = ['education', 'experience', 'publications', 'talks', 'academic-experience'];
-					let currentSection = null;
-					const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-					
-					// Check if we're at the very top (contact section)
-					if (scrollTop < 100) {
-						currentSection = 'contact';
-					} else {
-						// Find current section based on scroll position
-						for (const sectionId of sections) {
-							const element = document.getElementById(sectionId);
-							if (element) {
-								const rect = element.getBoundingClientRect();
-								if (rect.top <= 150) { // adjust threshold for better UX
-									currentSection = sectionId;
-								}
-							}
-						}
-					}
-					
-					// Update active nav icon and reveal text for section buttons
-					navIcons.forEach(icon => {
-						const iconSvg = icon.querySelector('svg');
-						const textSpan = icon.querySelector('.nav-text, .contact-text');
-						const sectionName = icon.getAttribute('data-section');
-						const isContactBtn = icon.id === 'contact-btn';
-						
-						// Reset all icons
-						icon.classList.remove('bg-stone-200');
-						iconSvg?.classList.remove('text-stone-800');
-						iconSvg?.classList.add('text-stone-500');
-						
-						// Only handle text animations on desktop
-						if (!isMobile()) {
-							textSpan?.classList.add('opacity-0', 'w-0');
-							textSpan?.classList.remove('opacity-100', 'w-auto');
-						}
-						
-						// Activate current section or contact button
-						const shouldActivate = isContactBtn ? 
-							currentSection === 'contact' : 
-							sectionName === currentSection;
-							
-						if (shouldActivate) {
-							icon.classList.add('bg-stone-200');
-							iconSvg?.classList.remove('text-stone-500');
-							iconSvg?.classList.add('text-stone-800');
-							
-							// Only expand text on desktop
-							if (!isMobile()) {
-								textSpan?.classList.remove('opacity-0', 'w-0');
-								textSpan?.classList.add('opacity-100', 'w-auto');
-							}
-						}
-					});
-				}
-				
-				// Smooth scrolling for navigation icons
-				navIcons.forEach(icon => {
-					icon.addEventListener('click', (e) => {
-						e.preventDefault();
-						const sectionName = (icon as HTMLElement).getAttribute('data-section');
-						if (sectionName) {
-							const targetElement = document.getElementById(sectionName);
-							
-							if (targetElement) {
-								targetElement.scrollIntoView({
-									behavior: 'smooth',
-									block: 'start'
-								});
-							}
-						}
-					});
-				});
-				
-				// Contact button functionality
-				const contactBtn = document.getElementById('contact-btn');
-				if (contactBtn) {
-					contactBtn.addEventListener('click', (e) => {
-						e.preventDefault();
-						window.scrollTo({
-							top: 0,
-							behavior: 'smooth'
-						});
-					});
-					
-					// Hover effects for contact button (desktop only)
-					contactBtn.addEventListener('mouseenter', () => {
-						const textSpan = contactBtn.querySelector('.contact-text') as HTMLElement;
-						if (!isMobile()) {
-							textSpan?.classList.remove('opacity-0', 'w-0');
-							textSpan?.classList.add('opacity-70', 'w-auto');
-						}
-					});
-					
-					contactBtn.addEventListener('mouseleave', () => {
-						const textSpan = contactBtn.querySelector('.contact-text') as HTMLElement;
-						if (!isMobile()) {
-							textSpan?.classList.add('opacity-0', 'w-0');
-							textSpan?.classList.remove('opacity-70', 'w-auto');
-						}
-					});
-				}
-				
-				// Listen for scroll events
-				window.addEventListener('scroll', handleScroll);
-				
-				// Initial call
-				handleScroll();
-				
-				// Add hover effects for better UX (desktop only)
-				navIcons.forEach(icon => {
-					icon.addEventListener('mouseenter', () => {
-						const textSpan = (icon as HTMLElement).querySelector('.nav-text') as HTMLElement;
-						// Only show hover effects on desktop and if not active
-						if (!isMobile() && !(icon as HTMLElement).classList.contains('bg-stone-200')) {
-							textSpan?.classList.remove('opacity-0', 'w-0');
-							textSpan?.classList.add('opacity-70', 'w-auto');
-						}
-					});
-					
-					icon.addEventListener('mouseleave', () => {
-						const textSpan = (icon as HTMLElement).querySelector('.nav-text') as HTMLElement;
-						// Only handle hover effects on desktop and if not active
-						if (!isMobile() && !(icon as HTMLElement).classList.contains('bg-stone-200')) {
-							textSpan?.classList.add('opacity-0', 'w-0');
-							textSpan?.classList.remove('opacity-70', 'w-auto');
-						}
-					});
-				});
-				
-				// Handle window resize to update mobile state
-				window.addEventListener('resize', function() {
-					handleScroll(); // Recheck current section and update accordingly
-				});
-			});
-		</script>
-	</body>
+      <footer class="pt-12 text-center text-sm text-stone-500">Last updated: December 2025</footer>
+    </main>
+  </body>
 </html>
