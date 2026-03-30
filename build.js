@@ -27,7 +27,7 @@ const publicationsHtml = cv.publications.map(p => `
           <div>
             <span class="pub-title">${p.title}</span>
             <br>${authors(p.authors)}
-            <br><span class="secondary">${pubLinks(p).trim()}${p.note ? ` — <span class="award">${p.note}</span>` : ''}</span>
+            <br><span class="secondary">${pubLinks(p).trim()}</span>${p.note ? `\n            <br><span class="award">${p.note}</span>` : ''}
           </div>
         </div>
       </li>`).join('\n');
@@ -166,7 +166,9 @@ const html = `<!DOCTYPE html>
     /* Links */
     a {
       color: #1a1a1a;
-      text-decoration: none;
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.06em;
+      text-decoration-color: rgba(26, 26, 26, 0.38);
       text-underline-offset: 2px;
     }
 
@@ -187,7 +189,11 @@ const html = `<!DOCTYPE html>
       color: #1a1a1a;
     }
 
-    .award { font-weight: 500; color: #1a1a1a; }
+    .award {
+      font-size: 14px;
+      font-weight: 700;
+      color: #3f6f8e;
+    }
     .pub-title { font-weight: 500; }
     .me { text-decoration: underline; text-underline-offset: 2px; }
 
