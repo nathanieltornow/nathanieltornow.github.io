@@ -1,11 +1,14 @@
 name: Nathaniel Tornow
 title: PhD Student, TU Munich
 about: >
-  I'm a PhD student with the
+  I'm a first-year PhD student with the
   <a href="https://dse.in.tum.de/">Systems Research Group</a> at TU Munich,
-  advised by Prof. Pramod Bhatotia.
-  My work spans compiler IRs, runtime systems, and tools that make
-  quantum accelerators usable alongside classical compute.
+  advised by <a href="https://dse.in.tum.de/bhatotia/">Prof. Pramod Bhatotia</a>.
+  My research addresses a fundamental gap in fault-tolerant quantum computing:
+  we cannot determine which algorithms are viable on real hardware, because no
+  end-to-end algorithm-aware compiler exists to verify it. I address this through
+  automated synthesis and structured compilation to enable verifiable, scalable
+  algorithm-architecture co-design.
 
 email: nathaniel.tornow@tum.de
 links:
@@ -19,8 +22,8 @@ links:
 publications:
   - title: "qTPU: Hybrid Tensor Networks for Quantum-Classical Acceleration"
     authors: [Nathaniel Tornow, Emmanouil Giortamis, Dennis Sprokholt, Christian Mendl, Pramod Bhatotia]
-    venue: OSDI'26
-    # preprint: https://arxiv.org/abs/2410.15080
+    venue: OSDI'26 (accepted)
+    preprint: https://arxiv.org/abs/2410.15080
     code: https://github.com/nathanieltornow/qtpu
 
   - title: "Qonductor: A Cloud Orchestrator for Quantum Computing"
@@ -54,43 +57,33 @@ publications:
     slides: https://dse.in.tum.de/wp-content/uploads/2023/08/FlexLog-HPDC23-presentation.pdf
 
 experience:
-  - position: PhD Student
-    organization: Systems Research Group, TU Munich
-    url: https://dse.in.tum.de
-    period: Nov 2025 - Present
-    selected: false
+  - position: Research Intern (upcoming)
+    organization: QuEra Computing
+    url: https://www.quera.com
+    period: Fall 2026
     details:
-      - Research on compiler and runtime systems for heterogeneous quantum-classical computing
+      - Compiler research for neutral-atom fault-tolerant quantum computing
 
-  - position: Quantum Software Engineer Intern
+  - position: Software Engineer Intern
     organization: planqc
     url: https://planqc.eu
     period: Apr 2025 - Oct 2025
     details:
-      - Developed compiler infrastructure for neutral-atom QPUs
+      - Led the development of compiler infrastructure for neutral-atom quantum processors
+
+  - position: Research Project
+    organization: Walther-Meissner-Institut (WMI)
+    url: https://www.wmi.badw.de
+    period: Oct 2024 - Apr 2025
+    details:
+      - Developed automatic calibration software for superconducting qubit systems
 
   - position: Research Assistant
     organization: Quantum Computing Group, Leibniz Supercomputing Centre
     url: https://www.lrz.de/technologien/quantum/
     period: Oct 2022 - Mar 2025
     details:
-      - Research on quantum-HPC integration
-
-  - position: Research Assistant
-    organization: Systems Research Group, TU Munich
-    url: https://dse.in.tum.de
-    period: Jul 2021 - Mar 2025
-    selected: false
-    details:
-      - Designed and implemented compiler and runtime systems for hybrid quantum-classical computing
-
-  - position: Software Developer (Working Student)
-    organization: Leibniz Supercomputing Centre
-    url: https://www.lrz.de
-    period: Sep 2020 - Apr 2021
-    selected: false
-    details:
-      - Full-stack web development for the citizen-science portal Baysics (Python, JavaScript)
+      - Developed compiler passes for the Munich Quantum Software Stack
 
 education:
   - degree: PhD Computer Science
