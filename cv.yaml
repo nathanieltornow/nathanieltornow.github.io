@@ -1,103 +1,123 @@
 name: Nathaniel Tornow
 title: PhD Student, TU Munich
-about: >
-  I'm a first-year PhD student with the
-  <a href="https://dse.in.tum.de/">Systems Research Group</a> at TU Munich,
-  advised by <a href="https://dse.in.tum.de/bhatotia/">Prof. Pramod Bhatotia</a>.
-  My research interests lie at the intersection of compiler design, software systems,
-  and fault-tolerant quantum computing, with a focus on algorithm-architecture co-design.
-
+about: I'm a first-year PhD student with the <a href="https://dse.in.tum.de">Systems Research Group</a> at TU Munich, advised
+  by <a href="https://dse.in.tum.de/bhatotia/">Prof. Pramod Bhatotia</a>. My research interests lie at the intersection of
+  compiler design, software systems, fault-tolerant quantum computing, and algorithm-architecture co-design.
 email: nathaniel.tornow@tum.de
 links:
-  - label: Scholar
-    url: https://scholar.google.com/citations?user=f5_ulrIAAAAJ
-  - label: GitHub
-    url: https://github.com/nathanieltornow
-  - label: LinkedIn
-    url: https://linkedin.com/in/nathanieltornow
-
+- label: Scholar
+  url: https://scholar.google.com/citations?user=f5_ulrIAAAAJ
+- label: GitHub
+  url: https://github.com/nathanieltornow
+- label: LinkedIn
+  url: https://linkedin.com/in/nathanieltornow
 publications:
-  - title: "qTPU: Hybrid Tensor Networks for Quantum-Classical Acceleration"
-    authors: [Nathaniel Tornow, Emmanouil Giortamis, Dennis Sprokholt, Christian Mendl, Pramod Bhatotia]
-    venue: OSDI'26
-    preprint: https://arxiv.org/abs/2410.15080
-
-  - title: "Qonductor: A Cloud Orchestrator for Quantum Computing"
-    authors: [Emmanouil Giortamis, Francisco Romao, Nathaniel Tornow, Dmitry Lugovoy, Pramod Bhatotia]
-    venue: SC'25
-    url: https://www.doi.org/10.1145/3712285.3759785
-    code: https://github.com/manosgior/Qonductor-SC25
-    slides: https://dse.in.tum.de/wp-content/uploads/2025/11/Qonductor-SC-2025-slides.pdf
-    note: Best Student Paper Award Finalist
-
-  - title: "QOS: Quantum Operating System"
-    authors: [Emmanouil Giortamis, Francisco Romao, Nathaniel Tornow, Pramod Bhatotia]
-    venue: OSDI'25
-    url: https://www.usenix.org/conference/osdi25/presentation/giortamis
-    code: https://github.com/TUM-DSE/QOS
-    slides: https://dse.in.tum.de/wp-content/uploads/2025/07/QOS-OSDI-2025-slides.pdf
-
-  - title: "QVM: Quantum Gate Virtualization Machine"
-    authors: [Nathaniel Tornow, Emmanouil Giortamis, Pramod Bhatotia]
-    venue: PLDI'25
-    url: https://doi.org/10.1145/3729290
-    code: https://github.com/TUM-DSE/qvm
-    slides: https://docs.google.com/presentation/d/1xWrvSssuuQzs1peqt5TpN9HrQvoKM5VKe-6xOblAQ0E/edit?usp=sharing
-    video: https://www.youtube.com/watch?v=nnyG4C6AReo
-
-  - title: "FlexLog: A Shared Log for Stateful Serverless Computing"
-    authors: [Dimitra Giantsidi, Emmanouil Giortamis, Nathaniel Tornow, Florin Dinu, Pramod Bhatotia]
-    venue: HPDC'23
-    url: https://doi.org/10.1145/3588195.3592993
-    code: https://github.com/TUM-DSE/FlexLog
-    slides: https://dse.in.tum.de/wp-content/uploads/2023/08/FlexLog-HPDC23-presentation.pdf
-
+- title: 'qTPU: Hybrid Tensor Networks for Quantum-Classical Acceleration'
+  authors:
+  - Nathaniel Tornow
+  - Emmanouil Giortamis
+  - Dennis Sprokholt
+  - Christian Mendl
+  - Pramod Bhatotia
+  venue: OSDI'26
+  preprint: https://arxiv.org/abs/2410.15080
+- title: 'Qonductor: A Cloud Orchestrator for Quantum Computing'
+  authors:
+  - Emmanouil Giortamis
+  - Francisco Romao
+  - Nathaniel Tornow
+  - Dmitry Lugovoy
+  - Pramod Bhatotia
+  venue: SC'25
+  url: https://www.doi.org/10.1145/3712285.3759785
+  code: https://github.com/manosgior/Qonductor-SC25
+  slides: https://dse.in.tum.de/wp-content/uploads/2025/11/Qonductor-SC-2025-slides.pdf
+  note: Best Student Paper Award Finalist
+- title: 'QOS: Quantum Operating System'
+  authors:
+  - Emmanouil Giortamis
+  - Francisco Romao
+  - Nathaniel Tornow
+  - Pramod Bhatotia
+  venue: OSDI'25
+  url: https://www.usenix.org/conference/osdi25/presentation/giortamis
+  code: https://github.com/TUM-DSE/QOS
+  slides: https://dse.in.tum.de/wp-content/uploads/2025/07/QOS-OSDI-2025-slides.pdf
+- title: 'QVM: Quantum Gate Virtualization Machine'
+  authors:
+  - Nathaniel Tornow
+  - Emmanouil Giortamis
+  - Pramod Bhatotia
+  venue: PLDI'25
+  url: https://doi.org/10.1145/3729290
+  code: https://github.com/TUM-DSE/qvm
+  slides: https://docs.google.com/presentation/d/1xWrvSssuuQzs1peqt5TpN9HrQvoKM5VKe-6xOblAQ0E/edit?usp=sharing
+  video: https://www.youtube.com/watch?v=nnyG4C6AReo
+- title: 'FlexLog: A Shared Log for Stateful Serverless Computing'
+  authors:
+  - Dimitra Giantsidi
+  - Emmanouil Giortamis
+  - Nathaniel Tornow
+  - Florin Dinu
+  - Pramod Bhatotia
+  venue: HPDC'23
+  url: https://doi.org/10.1145/3588195.3592993
+  code: https://github.com/TUM-DSE/FlexLog
+  slides: https://dse.in.tum.de/wp-content/uploads/2023/08/FlexLog-HPDC23-presentation.pdf
 experience:
-  - position: Research Intern (upcoming)
-    organization: QuEra Computing
-    url: https://www.quera.com
-    period: Fall 2026
-    details:
-      - Compiler research for neutral-atom fault-tolerant quantum computing
-
-  - position: Software Engineer Intern
-    organization: planqc
-    url: https://planqc.eu
-    period: Apr 2025 - Oct 2025
-    details:
-      - Led the development of compiler infrastructure for neutral-atom quantum processors
-
-  - position: Research Project
-    organization: Walther-Meissner-Institut (WMI)
-    url: https://www.wmi.badw.de
-    period: Oct 2024 - Apr 2025
-    details:
-      - Developed automatic calibration software for superconducting qubit systems
-
-  - position: Research Assistant
-    organization: Quantum Computing Group, Leibniz Supercomputing Centre
-    url: https://www.lrz.de/technologien/quantum/
-    period: Oct 2022 - Mar 2025
-    details:
-      - Developed compiler passes for the Munich Quantum Software Stack
-
+- position: Research Assistant (PhD)
+  organization: Systems Research Group, TU Munich
+  period: Nov 2025 - Present
+  details:
+  - Developing architecture synthesis, structured compilation, and profiling for fault-tolerant quantum computing
+  url: https://dse.in.tum.de
+- position: Research Intern (upcoming)
+  organization: QuEra Computing
+  period: Sep 2026 - Dec 2026
+  details:
+  - Compiler research for neutral-atom fault-tolerant quantum computing
+  url: https://www.quera.com
+- position: Software Engineer Intern
+  organization: planqc
+  period: Apr 2025 - Oct 2025
+  details:
+  - Led the development of compiler infrastructure for neutral-atom quantum processors
+  url: https://planqc.eu
+- position: Research Project
+  organization: Walther-Meissner-Institut (WMI)
+  period: Oct 2024 - Apr 2025
+  details:
+  - Developed automatic calibration software for superconducting qubit systems
+  url: https://www.wmi.badw.de
+- position: Research Assistant
+  organization: Quantum Computing Group, Leibniz Supercomputing Centre
+  period: Oct 2022 - Mar 2025
+  details:
+  - Developed compiler passes for the Munich Quantum Software Stack
+  - Contributed to HPC-quantum integration infrastructure connecting classical supercomputers with diverse QPUs
+  url: https://www.lrz.de/technologien/quantum/
+- position: Research and Teaching Assistant
+  organization: Systems Research Group, TU Munich
+  period: Jul 2021 - Mar 2025
+  details:
+  - Designed and implemented compiler and runtime systems for hybrid quantum-classical execution
+  - Led research projects resulting in publications at PLDI, OSDI, SC, and HPDC
+  url: https://dse.in.tum.de
 education:
-  - degree: PhD Computer Science
-    institution: TU Munich
-    url: https://www.tum.de/en/
-    period: Nov 2025 - Present
-    note: "Advisor: Prof. Pramod Bhatotia"
-
-  - degree: MSc Computer Science
-    institution: TU Munich
-    url: https://www.tum.de/en/
-    period: Oct 2022 - Apr 2025
-    thesis: Scalable Hybrid Quantum-Classical Computing with Tensor Networks
-    thesisUrl: https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2024/winter/docs/msc_nathaniel_tornow_scalable_hybrid_quantum_classical_computing_with_tensor_networks.pdf
-
-  - degree: BSc Computer Science
-    institution: TU Munich
-    url: https://www.tum.de/en/
-    period: Oct 2018 - Sep 2022
-    thesis: "DQS: A Framework for Efficient Distributed Simulation of Large Quantum Circuits"
-    thesisUrl: https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2022/summer/docs/bsc_tornow_dqs_a_framework_for_efficient_distributed_simulation_of_large_quantum_circuits.pdf
+- degree: PhD Computer Science
+  institution: TU Munich
+  url: https://www.tum.de/en/
+  period: Nov 2025 - Present
+  note: 'Advisor: Prof. Pramod Bhatotia'
+- degree: MSc Computer Science
+  institution: TU Munich
+  url: https://www.tum.de/en/
+  period: Oct 2022 - Apr 2025
+  thesis: Scalable Hybrid Quantum-Classical Computing with Tensor Networks
+  thesisUrl: https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2024/winter/docs/msc_nathaniel_tornow_scalable_hybrid_quantum_classical_computing_with_tensor_networks.pdf
+- degree: BSc Computer Science
+  institution: TU Munich
+  url: https://www.tum.de/en/
+  period: Oct 2018 - Sep 2022
+  thesis: 'DQS: A Framework for Efficient Distributed Simulation of Large Quantum Circuits'
+  thesisUrl: https://github.com/TUM-DSE/research-work-archive/blob/main/archive/2022/summer/docs/bsc_tornow_dqs_a_framework_for_efficient_distributed_simulation_of_large_quantum_circuits.pdf
