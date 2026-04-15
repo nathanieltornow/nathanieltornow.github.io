@@ -21,7 +21,6 @@ publications:
     authors: [Nathaniel Tornow, Emmanouil Giortamis, Dennis Sprokholt, Christian Mendl, Pramod Bhatotia]
     venue: OSDI'26
     preprint: https://arxiv.org/abs/2410.15080
-    code: https://github.com/nathanieltornow/qtpu
 
   - title: "Qonductor: A Cloud Orchestrator for Quantum Computing"
     authors: [Emmanouil Giortamis, Francisco Romao, Nathaniel Tornow, Dmitry Lugovoy, Pramod Bhatotia]
