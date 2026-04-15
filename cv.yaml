@@ -4,11 +4,8 @@ about: >
   I'm a first-year PhD student with the
   <a href="https://dse.in.tum.de/">Systems Research Group</a> at TU Munich,
   advised by <a href="https://dse.in.tum.de/bhatotia/">Prof. Pramod Bhatotia</a>.
-  My research addresses a fundamental gap in fault-tolerant quantum computing:
-  we cannot determine which algorithms are viable on real hardware, because no
-  end-to-end algorithm-aware compiler exists to verify it. I address this through
-  automated synthesis and structured compilation to enable verifiable, scalable
-  algorithm-architecture co-design.
+  My research interests lie at the intersection of compiler design, software systems,
+  and fault-tolerant quantum computing, with a focus on algorithm-architecture co-design.
 
 email: nathaniel.tornow@tum.de
 links:
@@ -22,7 +19,7 @@ links:
 publications:
   - title: "qTPU: Hybrid Tensor Networks for Quantum-Classical Acceleration"
     authors: [Nathaniel Tornow, Emmanouil Giortamis, Dennis Sprokholt, Christian Mendl, Pramod Bhatotia]
-    venue: OSDI'26 (accepted)
+    venue: OSDI'26
     preprint: https://arxiv.org/abs/2410.15080
     code: https://github.com/nathanieltornow/qtpu
 
