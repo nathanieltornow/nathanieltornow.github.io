@@ -35,7 +35,7 @@ const publicationsHtml = cv.publications.map(p => `
 const experienceHtml = cv.experience.filter(e => e.selected !== false).map(e => `
       <li>
         <div class="entry-header">
-          <span><strong>${e.position}</strong>, ${e.organization}</span>
+          <span><strong>${e.organization}</strong>, ${e.position}</span>
           <span class="secondary">${e.period}</span>
         </div>${e.details ? '\n        <div class="secondary">' + e.details.join('; ') + '</div>' : ''}
       </li>`).join('\n');

@@ -75,7 +75,7 @@ experience:
   organization: QuEra Computing
   period: Sep 2026 - Dec 2026
   details:
-  - Compiler research for neutral-atom fault-tolerant quantum computing
+  - Compiler research for neutral-atom quantum computing
   url: https://www.quera.com
 - position: Software Engineer Intern
   organization: planqc
@@ -96,13 +96,6 @@ experience:
   - Developed compiler passes for the Munich Quantum Software Stack
   - Contributed to HPC-quantum integration infrastructure connecting classical supercomputers with diverse QPUs
   url: https://www.lrz.de/technologien/quantum/
-- position: Research and Teaching Assistant
-  organization: Systems Research Group, TU Munich
-  period: Jul 2021 - Mar 2025
-  details:
-  - Designed and implemented compiler and runtime systems for hybrid quantum-classical execution
-  - Led research projects resulting in publications at PLDI, OSDI, SC, and HPDC
-  url: https://dse.in.tum.de
 education:
 - degree: PhD Computer Science
   institution: TU Munich
