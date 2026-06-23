@@ -11,6 +11,15 @@ links:
   url: https://github.com/nathanieltornow
 - label: LinkedIn
   url: https://linkedin.com/in/nathanieltornow
+news:
+- date: May 2026
+  text: Presenting <a href="https://dse.in.tum.de/wp-content/uploads/2026/06/qtpu_osdi26.pdf">qTPU</a> at OSDI 2026 in Seattle.
+- date: Apr 2026
+  text: Nominated for the <a href="https://research.google/programs-and-events/phd-fellowship/">Google PhD Fellowship</a> by TU Munich.
+- date: Apr 2026
+  text: Joining <a href="https://www.quera.com">QuEra</a> as an intern in fall 2026.
+- date: Nov 2025
+  text: <a href="https://www.doi.org/10.1145/3712285.3759785">Qonductor</a> named a Best Student Paper Award Finalist at SC'25.
 publications:
 - title: 'qTPU: Hybrid Tensor Networks for Quantum-Classical Acceleration'
   authors:

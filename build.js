@@ -20,6 +20,14 @@ function pubLinks(pub) {
   return parts.length ? ` [${parts.join(', ')}]` : '';
 }
 
+const newsHtml = (cv.news || []).map(n => `
+      <li>
+        <div class="news-row">
+          <span class="news-date">${n.date}</span>
+          <span>${n.text}</span>
+        </div>
+      </li>`).join('\n');
+
 const publicationsHtml = cv.publications.map(p => `
       <li>
         <div class="pub-row">
@@ -163,6 +171,16 @@ const html = `<!DOCTYPE html>
       gap: 1.2rem;
     }
 
+    .news-list {
+      display: block;
+      list-style: disc;
+      padding-left: 1.2rem;
+    }
+    .news-list li { display: list-item; margin-bottom: 0.4rem; }
+    .news-list li::marker { color: #999; }
+    .news-row { display: flex; gap: 1rem; align-items: baseline; }
+    .news-date { flex-shrink: 0; min-width: 5rem; color: #666; font-size: 13px; }
+
     /* Links */
     a {
       color: #1a1a1a;
@@ -241,6 +259,13 @@ const html = `<!DOCTYPE html>
         <img class="avatar" src="avatar.png" alt="${cv.name}">
       </div>
     </header>
+
+    <section>
+      <h2>News</h2>
+      <ul class="news-list">
+${newsHtml}
+      </ul>
+    </section>
 
     <section>
       <h2>Publications</h2>
