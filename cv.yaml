@@ -21,6 +21,14 @@ news:
 - date: Nov 2025
   text: <a href="https://www.doi.org/10.1145/3712285.3759785">Qonductor</a> named a Best Student Paper Award Finalist at SC'25.
 publications:
+- title: 'RushHour: A Dynamically Reconfigurable Lattice-Surgery Architecture'
+  authors:
+  - Nathaniel Tornow
+  - Aleksandra Świerkowska
+  - Peter Wegmann
+  - Pramod Bhatotia
+  venue: arXiv'26
+  preprint: https://arxiv.org/abs/2608.18985
 - title: 'qTPU: Hybrid Tensor Networks for Quantum-Classical Acceleration'
   authors:
   - Nathaniel Tornow
@@ -82,9 +90,9 @@ experience:
   details:
   - Developing architecture synthesis, structured compilation, and profiling for fault-tolerant quantum computing
   url: https://dse.in.tum.de
-- position: Research Intern
+- position: Scientific Software Engineer Intern
   organization: QuEra Computing
-  period: Sep 2026 - Nov 2026
+  period: Sep 2026 - Dec 2026
   details:
   - Compiler research for neutral-atom quantum computing
   url: https://www.quera.com
