@@ -114,10 +114,7 @@ experience:
     organization: QuEra Computing
     period: Sep 2026 to present
     details:
-      - I develop compiler infrastructure for quantum programs in Bloqade and Kirin.
-      - I implemented <a href="https://github.com/QuEraComputing/bloqade-circuit/pull/871">conversion between Squin and the jeff quantum interchange format</a>, with static validation of supported programs.
-      - I develop an <a href="https://github.com/QuEraComputing/bloqade-circuit/pull/901">intermediate representation with explicit qubit ownership</a>.
-      - I improved <a href="https://github.com/QuEraComputing/kirin/pull/730">type inference</a> and <a href="https://github.com/QuEraComputing/kirin/pull/743">recursive analysis</a> to prevent incorrect loop transformations and compiler crashes.
+      - I develop compiler representations and static analyses for quantum programs with dynamic control flow. My work addresses qubit ownership, compiler interoperability, and the correctness of transformations across function calls, loops, and branches.
     url: https://www.quera.com
   - position: Software Engineer Intern
     organization: planqc
