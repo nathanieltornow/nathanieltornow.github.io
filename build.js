@@ -28,13 +28,13 @@ const newsHtml = (cv.news || []).map(n => `
         </div>
       </li>`).join('\n');
 
-const publicationsHtml = cv.publications.map(p => `
+const renderPublications = publications => publications.map(p => `
       <li>
         <div class="pub-row">
           <span class="pub-venue">${p.venue}</span>
           <div>
             <span class="pub-title">${p.title}</span>
-            <br>${authors(p.authors)}
+            <br>${authors(p.authors)}${p.status ? `<br><span class="secondary">${p.status}</span>` : ""}
             <br><span class="secondary">${pubLinks(p).trim()}</span>${p.note ? `\n            <br><span class="award">${p.note}</span>` : ''}
           </div>
         </div>
@@ -45,7 +45,7 @@ const experienceHtml = cv.experience.filter(e => e.selected !== false).map(e => 
         <div class="entry-header">
           <span><strong>${e.organization}</strong>, ${e.position}</span>
           <span class="secondary">${e.period}</span>
-        </div>${e.details ? '\n        <div class="secondary">' + e.details.join('; ') + '</div>' : ''}
+        </div>${e.details ? '\n        <div class="secondary">' + e.details.map(detail => detail.endsWith('.') ? detail : detail + '.').join(' ') + '</div>' : ''}
       </li>`).join('\n');
 
 const educationHtml = cv.education.map(e => {
@@ -164,6 +164,8 @@ const html = `<!DOCTYPE html>
       border-bottom: 1px solid #e5e5e5;
     }
 
+    h3 { font-size: 14px; font-weight: 500; margin: 1.5rem 0 1rem; }
+
     ul {
       list-style: none;
       display: flex;
@@ -269,8 +271,13 @@ ${newsHtml}
 
     <section>
       <h2>Publications</h2>
+      <h3>Preprints and Submissions</h3>
       <ul>
-${publicationsHtml}
+${renderPublications(cv.publications.filter(p => p.category))}
+      </ul>
+      <h3>Peer-Reviewed Publications</h3>
+      <ul>
+${renderPublications(cv.publications.filter(p => !p.category))}
       </ul>
     </section>
 
