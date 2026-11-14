@@ -112,9 +112,9 @@ experience:
     url: https://dse.in.tum.de
   - position: Scientific Software Engineer Intern
     organization: QuEra Computing
-    period: Sep 2026 to present
+    period: Sep 2026 to Dec 2026
     details:
-      - I develop compiler representations and static analyses for quantum programs with dynamic control flow. My work addresses qubit ownership, compiler interoperability, and the correctness of transformations across function calls, loops, and branches.
+      - I develop compiler abstractions that enable scalable and safe compilation for fault-tolerant QPUs.
     url: https://www.quera.com
   - position: Software Engineer Intern
     organization: planqc
